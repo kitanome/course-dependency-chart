@@ -14,7 +14,7 @@ Clicking on the course node gives a window with the following:
 - Possible bypasses
 - Special Info: Spring/Fall Only Class, Required for All students, etc.
 - Professor/Instructor Info
-- (Optional: which track the course belongs to: for example General Requirement, Robotics, Software Engineering, Networks etc.)
+- (Optional: which track the course belongs to: for example General Requirement, Robotics, Sofware Engineering, Networks etc.)
 This ensures an intuitive way for users to obtain information.
 
 **Assigned:
@@ -40,10 +40,11 @@ This allows students to learn more flexible options that they might not have kno
 ## Course Planning function
 
 User can take the selected courses list to a **separate view** and arrange them as visual horizontal layers, each representing a semester.
-This allows users to experiment planning with the courses they have interested in and have selected.
+This allows users to experiment planning with the courses they have interested in and selected.
 
 **Assigned:
 
 ## (Optional) Written guide to choosing courses
 
 Pop-up at the start explaining what to consider when choosing courses. Especially helpful for freshmen who are new to this process.
+

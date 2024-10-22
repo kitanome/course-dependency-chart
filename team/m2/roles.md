@@ -13,4 +13,5 @@
 - **Role**: Responsible for organizing and tracking team tasks. Makes sure that deadlines are met and reminds the team of upcoming deadlines.
 - **Top 3 Commits**:
     1. [Commit 1](https://github.com/kitanome/course-dependency-chart/issues/3): Drafted `Users.md` to work towards completion of M2
-    2. [Commit 2](https://github.com/kitanome/course-dependency-chart/issues/5): Drafted `Data.md` to work towards completion of M2
+    2. [Commit 2](https://github.com/kitanome/course-dependency-chart/pull/8): Tracked Jeff's progress on `problems.md`, merged upon completion.
+    3. [COmmit 3](https://github.com/kitanome/course-dependency-chart/commit/69833f03b63bac00eb03db1179cfc9bbe3bf8a9d) Self assigned role in `roles.md`

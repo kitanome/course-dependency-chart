@@ -14,7 +14,7 @@ Clicking on the course node gives a window with the following:
 - Possible bypasses
 - Special Info: Spring/Fall Only Class, Required for All students, etc.
 - Professor/Instructor Info
-(Optional: which track the course belongs to: for example General Requirement, Robotics, Sofware Engineering, Networks etc.)
+- (Optional: which track the course belongs to: for example General Requirement, Robotics, Sofware Engineering, Networks etc.)
 This ensures an intuitive way for users to obtain information.
 
 **Assigned:
@@ -24,7 +24,7 @@ This ensures an intuitive way for users to obtain information.
 - A button to toggle a filter to show only courses under some criteria
 - The user has a local list that they can add courses to
 - A toggle "Show only selected courses" button.
-(Optional: Filter by tracks, which is unofficial but the track names are visible on the CICS website)
+- (Optional: Filter by tracks, which is unofficial but the track names are visible on the CICS website)
 
 This allows for the course searching process to be faster and more accurate.
 

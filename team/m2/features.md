@@ -4,7 +4,7 @@
 
 This feature will show all applicable courses on a 2D canvas as connected nodes.
 
-**Assigned:
+**Assigned to**: Nguyen Nguyen
 
 ## Course Descriptions
 
@@ -35,15 +35,17 @@ This allows for the course searching process to be faster and more accurate.
 Users can add their own contribution such as (possible but not written) bypasses that they have taken. Submitted as notes under the course description.
 This allows students to learn more flexible options that they might not have known about.
 
-**Assigned:
+**Assigned to**: Ian Kapko
 
 ## Course Planning function
 
 User can take the selected courses list to a **separate view** and arrange them as visual horizontal layers, each representing a semester.
 This allows users to experiment planning with the courses they have interested in and have selected.
 
-**Assigned:
+**Assigned to**: Ken Nguyen
 
 ## (Optional) Written guide to choosing courses
 
 Pop-up at the start explaining what to consider when choosing courses. Especially helpful for freshmen who are new to this process.
+
+**Assigned to**: Ken Nguyen

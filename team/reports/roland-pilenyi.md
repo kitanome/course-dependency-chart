@@ -11,3 +11,8 @@
 - **Details**: Followed milestone 2 guidelines to define datatypes to be used in our project.
 - **Link to Commit**: [First draft](https://github.com/kitanome/course-dependency-chart/commit/75f812e80e26c9060f2687d18ab36ff41066c86f)
 - **Link to Commit**: [Added major datatype](https://github.com/kitanome/course-dependency-chart/commit/30ea5e5e103a806272a40d024ce42a55032ee283)
+
+- **Task**: Reviewed teammates' pull requests.
+- **Details**: Reviewed `problems.md` and `features.md` for errors.
+- **Link to Commit**: [problems.md pull request](https://github.com/kitanome/course-dependency-chart/pull/8)
+- **Link to Commit**: [features.md pull request](https://github.com/kitanome/course-dependency-chart/pull/10)

@@ -17,7 +17,7 @@ Clicking on the course node gives a window with the following:
 - (Optional: which track the course belongs to: for example General Requirement, Robotics, Software Engineering, Networks etc.)
 This ensures an intuitive way for users to obtain information.
 
-**Assigned:
+**Assigned to**: Nguyen Nguyen
 
 ## Filter and Select
 

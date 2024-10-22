@@ -5,3 +5,5 @@
 - Reports files are in ```/team/reports``` folder.
 
 ### TODO: add a feature list here
+
+### Discord server : contact Ken (@kitanome)

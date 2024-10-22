@@ -42,14 +42,24 @@
   - `courses` (string[][] array): All courses marked with interest in form of course_id, organized by semester.
 - **Data Source**: User input.
 
+### 5. Major
+
+- **Description**: Majors offered at UMass.
+- **Attributes**:
+  - `major_id` (string): Unique identifier for major.
+  - `major_name` (string): Name of major.
+  - `courses` (string array): All courses in the major.
+- **Data Source**: Scraping of Spire.
+
 ## Data Relationships
 
 - **User to User Course Data**: One-to-one relationship
 - **Course Data to Professor Data**: One-to-many relationship
 - **User Course Data to Course Data**: One-to-many relationship
+- **Major to Course Data**: One-to-many relationship
 
 ## Data Sources
 
 - **User-Input Data**: User input is responsible for some data in the user profile, and user course data.
 - **System-Generated Data**: Unique identifiers will be system generated.
-- **Scraped Data**: Information on professors and courses will be scraped from Spire and RateMyTeacher.
+- **Scraped Data**: Information on professors, majors, and courses will be scraped from Spire and RateMyTeacher.

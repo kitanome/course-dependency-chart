@@ -4,19 +4,18 @@
 
 This feature will show all applicable courses on a 2D canvas as connected nodes.
 
-\*\*Assigned:
+**Assigned:
 
 ## Course Descriptions
 
 Clicking on the course node gives a window with the following:
-
 - Course description as stated on SPIRE
 - Dependencies
 - Possible bypasses
 - Special Info: Spring/Fall Only Class, Required for All students, etc.
 - Professor/Instructor Info
 - (Optional: which track the course belongs to: for example General Requirement, Robotics, Software Engineering, Networks etc.)
-  This ensures an intuitive way for users to obtain information.
+This ensures an intuitive way for users to obtain information.
 
 **Assigned to**: Nguyen Nguyen
 
@@ -36,14 +35,14 @@ This allows for the course searching process to be faster and more accurate.
 Users can add their own contribution such as (possible but not written) bypasses that they have taken. Submitted as notes under the course description.
 This allows students to learn more flexible options that they might not have known about.
 
-\*\*Assigned:
+**Assigned:
 
 ## Course Planning function
 
 User can take the selected courses list to a **separate view** and arrange them as visual horizontal layers, each representing a semester.
 This allows users to experiment planning with the courses they have interested in and have selected.
 
-\*\*Assigned:
+**Assigned:
 
 ## (Optional) Written guide to choosing courses
 

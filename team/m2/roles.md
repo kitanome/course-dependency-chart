@@ -11,7 +11,7 @@
 
 ## Ian Rapko - UI Diagrams
 
-- **Role** reviews team submissions and commits, making sure the changes are intended and agreed within the team. Nguyen is responsible for proofreading, ensuring the accuracy of the document before the submission
+- **Role** Created a flowchart for the website's function, and described the UI, labelling each asset that will be added to the site and how it affects the app.
 
 **Top 3 Commits**:
 

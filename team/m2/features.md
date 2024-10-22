@@ -17,7 +17,7 @@ Clicking on the course node gives a window with the following:
 - (Optional: which track the course belongs to: for example General Requirement, Robotics, Software Engineering, Networks etc.)
 This ensures an intuitive way for users to obtain information.
 
-**Assigned:
+**Assigned to**: Nguyen Nguyen
 
 ## Filter and Select
 
@@ -28,7 +28,7 @@ This ensures an intuitive way for users to obtain information.
 
 This allows for the course searching process to be faster and more accurate.
 
-**Assigned:
+**Assigned to**: Roland Pilenyi
 
 ## Adding notes
 

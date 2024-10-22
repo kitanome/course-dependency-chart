@@ -2,7 +2,7 @@
 
 ## Primary Audience
 
-The primary users of our web app will be current UMass Amherst students that are planning their future courses. All students are required to sign up for classes using Spire, and the process can be confusing. Not every Umass student is an adept computer user, and may struggle to navigate the many menus on Spire.
+The primary users of our **Course Dependency Chart** web app will be current UMass Amherst students that are planning their future courses. All students are required to sign up for classes using Spire, and the process can be confusing. Not every Umass student is an adept computer user, and may struggle to navigate the many menus on Spire.
 
 ## User Needs
 

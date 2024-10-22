@@ -6,7 +6,7 @@ Course prerequisites on SPIRE can sometimes be unclear and makes planning harder
 
 ## Proposed Solution
 
-Our web application, "Course Dependency Chart", provides a more accurate and interactive solution for course planning. This application helps you understand the course descriptions better, its dependencies with other courses and helps you decide
+Our web application, **Course Dependency Chart**, provides a more accurate and interactive solution for course planning. This application helps you understand the course descriptions better, its dependencies with other courses and helps you decide
 which courses to take further ahead with our tree / graph design
 
 The features of this website includes:
@@ -19,4 +19,4 @@ The features of this website includes:
 
 ## Why this matters
 
-Making decisions on what you want to study can be confusing for many students, especially those who are uncertain about what they want to pursue, or don't have a clear understanding of what the major offers them in undergraduate years. Some students are also hesitant to talk to advisors, professors or friends on the course roadmap due to personal issues as well. Course Dependency Chart helps as the middleman to counter these issues students may encounter. It gives you the most general idea of which course exists under your major curriculum, requires students to complete before moving on, and clears out all confusion with course descriptions when course admission time comes around. All of these solutions provided in a more fast and reactive web application helps course planning a much more time efficient process for students to plan out their study at UMass.
+Making decisions on what you want to study can be confusing for many students, especially those who are uncertain about what they want to pursue, or don't have a clear understanding of what the major offers them in undergraduate years. Some students are also hesitant to talk to advisors, professors or friends on the course roadmap due to personal issues as well. **Course Dependency Chart** helps as the middleman to counter these issues students may encounter. It gives you the most general idea of which course exists under your major curriculum, requires students to complete before moving on, and clears out all confusion with course descriptions when course admission time comes around. All of these solutions provided in a more fast and reactive web application helps course planning a much more time efficient process for students to plan out their study at UMass.

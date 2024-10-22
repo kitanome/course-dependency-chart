@@ -1,4 +1,6 @@
-# group 14's web app
+# 14's web app: course-dependency-chart
 
-# TODO: add a feature list here
+## Milestone 2(Mon 21/10):
+The submitted files are in ```/team/m2``` folder.
 
+## TODO: add a feature list here

@@ -25,3 +25,11 @@
 - [Commit 1](https://github.com/kitanome/course-dependency-chart/commit/8988d17ba5c6da97987b678b8b3b22701ceb05b2) Wrote the ```feature.md``` file, merged after feedback
 - [Commit 2](https://github.com/kitanome/course-dependency-chart/commit/9f23e880f5a203d112d1d2985f04038c439823b3) Drafted ```ui-diagram.md``` with Ian and final review
 - [Commit 3](https://github.com/kitanome/course-dependency-chart/commit/c26dd444e96b1a75d72fe52fd8d97b6d73fa4426) Fixed folder structure, report file names to follow requirement, and added my report for 21 Oct
+
+## Roland Pilenyi - Task Manager
+
+- **Role**: Responsible for organizing and tracking team tasks. Makes sure that deadlines are met and reminds the team of upcoming deadlines.
+- **Top 3 Commits**:
+    1. [Commit 1](https://github.com/kitanome/course-dependency-chart/issues/3): Drafted `Users.md` to work towards completion of M2
+    2. [Commit 2](https://github.com/kitanome/course-dependency-chart/pull/8): Tracked Jeff's progress on `problems.md`, merged upon completion.
+    3. [Commit 3](https://github.com/kitanome/course-dependency-chart/commit/69833f03b63bac00eb03db1179cfc9bbe3bf8a9d) Self assigned role in `roles.md`

@@ -1,10 +1,5 @@
 {
   "dependencies": {
-    "@dagrejs/dagre": "^1.1.4",
-    "cytoscape": "^3.30.3",
-    "d3-dag": "^1.1.0",
-    "graphology": "^0.25.4",
-    "leaflet": "^1.9.4",
-    "sigma": "^3.0.0-beta.36"
+    "d3-dag": "^1.1.0"
   }
 }

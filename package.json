@@ -1,0 +1,7 @@
+{
+  "type":"module",
+  "dependencies": {
+    "@dagrejs/dagre": "^1.1.4",
+    "dagre-d3": "^0.6.4"
+  }
+}

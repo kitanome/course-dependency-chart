@@ -45,7 +45,7 @@ function createLayout() {
     });
   });
 
-  return positions;
+  return positions; // returns a map of index to a {x, y} map
 }
 
 // Create course nodes

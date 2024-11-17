@@ -1,10 +1,4 @@
-import * as dagre from "@dagrejs/dagre";
-
-let g = new dagre.graphlib.Graph();
-
-g.setGraph({});
-
-g.setDefaultEdgeLabel(function() {return {};});
+let g = new dagre.graphlib.Graph().setGraph({}).setDefaultEdgeLabel(function() {return {};});
 
 g.setNode("cs101", {label: "Introduction to Programming", width: 200, height:150});
 g.setNode("cs201", {label: "Data Structures and Algorithms", width: 200, height:150});
@@ -34,4 +28,11 @@ g.setEdge("math210","cs450");
 
 g.setEdge("cs230","cs370");
 
-dagre.layout(g);
+let render = new dagreD3.render();
+let svg = d3.select("svg"), svgGroup = svg.append(g);
+
+render(d3.select("svg g"),g)
+
+var xCenterOffset = (svg.attr("width") - g.graph().width) / 2;
+svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
+svg.attr("height", g.graph().height + 40);

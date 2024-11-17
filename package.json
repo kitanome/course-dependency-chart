@@ -1,7 +1,8 @@
 {
-  "type":"commonjs",
+  "type": "commonjs",
   "dependencies": {
     "@dagrejs/dagre": "^1.1.4",
+    "cytoscape": "^3.30.3",
     "dagre-d3": "^0.6.4"
   }
 }

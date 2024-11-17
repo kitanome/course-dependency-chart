@@ -1,4 +1,4 @@
-let g = new dagreD3.graphlib.Graph().setGraph({}).setDefaultEdgeLabel(function() {return {};});
+let g = new dagre.graphlib.Graph().setGraph({}).setDefaultEdgeLabel(function() {return {};});
 
 g.setNode("cs101", {label: "CS101", width: 200, height:150});
 g.setNode("cs201", {label: "CS201", width: 200, height:150});
@@ -28,7 +28,8 @@ g.setEdge("math210","cs450");
 
 g.setEdge("cs230","cs370");
 
-let render = new dagreD3.render();
-let svg = d3.select("svg"), svgGroup = svg.append(g);
+let cy = cytoscape({
+    container: document.getElementById('cy')
+})
 
-render(d3.select("svg g"),g)
+dagre.layout(g).run();

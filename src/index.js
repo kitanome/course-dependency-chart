@@ -1,3 +1,9 @@
+import { AppControllerComponent } from './components/AppControllerComponent/AppControllerComponent.js';
+
+const appController = new AppControllerComponent();
+const appContainer = document.getElementById('app');
+appContainer.appendChild(appController.render());
+
 let classList = await fetch('./sample.json')
 .then((res)=>{
     if (!res.ok){
@@ -9,6 +15,7 @@ let classList = await fetch('./sample.json')
 .catch((error)=>{throw new Error("Error obtaining json file",error)});
 
 let g = new dagreD3.graphlib.Graph().setGraph({}).setDefaultEdgeLabel(function() {return {};});
+
 
 // g.setNode("cs101", {label: "CS101", width: 100, height:100, style: "node"});
 // g.setNode("cs201", {label: "CS201", width: 100, height:100, style: "node"});

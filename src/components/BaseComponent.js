@@ -1,27 +1,35 @@
-import { EventHub } from "../eventhub/EventHub.js";
-/**
- * The Service class is an abstract class that provides a common interface for
- * service classes.
- *
- * @abstract
- * @class Service
- */
-export default class Service {
-	constructor() {
-		if (new.target === Service) {
-			throw new Error(
-				"Service is an abstract class and cannot be instantiated directly"
-			);
-		}
-		this.addSubscriptions();
-	}
-	addSubscriptions() {
-		throw new Error("Subclasses must implement the addSubscriptions method");
-	}
-	subscribe(event, listener) {
-		return EventHub.getInstance().subscribe(event, listener);
-	}
-	publish(event, data) {
-		EventHub.getInstance().publish(event, data);
-	}
+export class BaseComponent {
+  constructor() {
+    this.cssLoaded = false;
+  }
+
+  /**
+   * This is an abstract method that must be implemented by child classes.
+   * It must return an HTMLElement object.
+   * @abstract
+   * @returns {HTMLElement}
+   */
+  render() {
+    throw new Error("render method not implemented");
+  }
+
+  loadCSS(fileName) {
+    if (this.cssLoaded) return;
+
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    // Dynamically load CSS from the same directory as the JS file
+    link.href = `./components/${fileName}/${fileName}.css`;
+    document.head.appendChild(link);
+    this.cssLoaded = true;
+  }
+
+  dispatchCustomEvent(eventName, detail = {}) {
+    const event = new CustomEvent(eventName, { detail });
+    this.parent.dispatchEvent(event);
+  }
+
+  listenToEvent(eventName, callback) {
+    this.parent.addEventListener(eventName, callback);
+  }
 }

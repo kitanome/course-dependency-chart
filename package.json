@@ -1,0 +1,19 @@
+{
+	"name": "course-dependency-chart",
+	"version": "1.0.0",
+	"type": "module",
+	"engines": {
+		"node": ">= 14.0.0",
+		"npm": ">= 6.0.0"
+	},
+	"description": "## Milestone 2 (Mon 21/10) - Notes - The submitted files are in ```/team/m2``` folder. - Reports files are in ```/team/reports``` folder.",
+	"main": "index.js",
+	"scripts": {
+		"start": "http-server src -p 3000 -c-1 -o"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"http-server": "^14.1.1"
+	}
+}

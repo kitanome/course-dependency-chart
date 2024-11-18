@@ -1,9 +1,3 @@
-import { AppControllerComponent } from './components/AppControllerComponent/AppControllerComponent.js';
-
-const appController = new AppControllerComponent();
-const appContainer = document.getElementById('app');
-appContainer.appendChild(appController.render());
-
 let classList = await fetch('./sample.json')
 .then((res)=>{
     if (!res.ok){
@@ -16,65 +10,84 @@ let classList = await fetch('./sample.json')
 
 let g = new dagreD3.graphlib.Graph().setGraph({}).setDefaultEdgeLabel(function() {return {};});
 
+// Add nodes to the graph
+classList.forEach((e) => {
+    let name = e.course_id + "\n" + e.name;
 
-// g.setNode("cs101", {label: "CS101", width: 100, height:100, style: "node"});
-// g.setNode("cs201", {label: "CS201", width: 100, height:100, style: "node"});
-// g.setNode("cs230", {label: "CS230", width: 100, height:100, style: "node"});
-// g.setNode("cs326", {label: "CS236", width: 100, height:100, style: "node"});
-// g.setNode("math210", {label: "MATH210", width: 100, height:100, style: "node"});
-// g.setNode("cs410", {label: "CS410", width: 100, height:100, style: "node"});
-// g.setNode("cs320", {label: "CS320", width: 100, height:100, style: "node"});
-// g.setNode("cs240", {label: "CS240", width: 100, height:100, style: "node"});
-// g.setNode("cs450", {label: "CS450", width: 100, height:100, style: "node"});
-// g.setNode("cs370", {label: "CS370", width: 100, height:100, style: "node"});
+    g.setNode(e.course_id, {
+      label: name,
+      height: 80,
+      width: 200,
+      style: "node node:hover",
+      courseData: e,
+    });
+});
 
-// g.setEdge("cs101","cs201");
-// g.setEdge("cs101","cs230");
-// g.setEdge("cs201","cs326");
-
-// g.setEdge("cs201","cs410");
-// g.setEdge("math210","cs410");
-
-// g.setEdge("cs201","cs320");
-// g.setEdge("cs230","cs320");
-
-// g.setEdge("cs201","cs240");
-
-// g.setEdge("cs410","cs450");
-// g.setEdge("math210","cs450");
-
-// g.setEdge("cs230","cs370");
-
-classList.forEach((e)=>
-    {   
-        let name = e.course_id+"\n"+e.name;
-        name.replace(e.course_id,'<b>'+e.course_id+'</b>');
-        g.setNode(e.course_id,{label:name,height:80,width:200,style:"node node:hover"});
+classList.forEach((e) => {
+        if (e.prerequisites.length > 0){
+        e.prerequisites.forEach((classes) => {
+            g.setEdge(classes, e.course_id);
+        });
     }
-);
+});
 
-classList.forEach((e)=>
-    {   
-        if (e.prerequisites.length > 0) e.prerequisites.forEach((classes)=>
-        {
-            g.setEdge(classes,e.course_id);
-        })
+g.nodes().forEach(function (v) {
+  var node = g.node(v);
+  // Round the corners of the nodes
+  node.rx = node.ry = 25;
+});
+
+// Layout the graph
+const render = new dagreD3.render();
+const svg = d3.select("svg");
+const inner = svg.append("g");
+
+inner.selectAll("g.node").attr("id", (d) => d);
+
+// Render the graph into the SVG
+render(inner, g);
+
+d3.selectAll("g.node")
+  .style("cursor", "pointer")
+  .on("click", (event, d) => {
+    // Updated event handler signature
+    // Get the clicked element
+    const clickedElement = d3.select(event.currentTarget);
+    // Extract the node id from the element
+    console.log("extracting")
+    const input = clickedElement.select("text").text()
+    const match = input.match(/^[A-Za-z]*\d+/); // Matches from start to the last digit
+    const nodeId = match ? match[0] : null;
+    console.log(nodeId)
+    // Get the node data using the extracted id
+    const nodeData = g.node(nodeId);
+    // Call showCourseDetails with the stored course data
+    if (nodeData && nodeData.courseData) {
+      showCourseDetails(nodeData.courseData);
     }
-);
-
-g.nodes().forEach(function(v) {
-    var node = g.node(v);
-    // Round the corners of the nodes
-    node.rx = node.ry = 25;
   });
 
-let render = new dagreD3.render();
-let svg = d3.select("svg"),svgGroup = svg.append("g");
-d3.select("svg g").call(render,g);
+function showCourseDetails(course) {
+  const prerequisites =
+    course.prerequisites.length > 0 ? course.prerequisites.join(", ") : "None";
+
+  const sidebar = document.getElementById("sidebar");
+  sidebar.innerHTML = `
+    <h2>${course.name}</h2>
+    <p><strong>Course ID:</strong> ${course.course_id}</p>
+    <p><strong>Credits:</strong> ${course.credits}</p>
+    <p><strong>Prerequisites:</strong> ${prerequisites}</p>
+    <p><strong>Professors:</strong></p>
+    <ul>
+    ${course.professors.map((prof) => `<li>${prof}</li>`).join("")}
+    </ul>
+    `;
+}
 
 // function redirectUrl()
 // svg.selectAll("g.node").on("click", redirectUrl);
 
 let xCenterOffset = (svg.attr("width") - g.graph().width) / 2;
-svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
-svg.attr("height", g.graph().height + 40);
+inner.attr("transform", "translate(" + xCenterOffset + ", 20)");
+svg.attr("height", g.graph().height + 40)
+.attr("width", g.graph().width + 1000);

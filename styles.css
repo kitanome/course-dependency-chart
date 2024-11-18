@@ -21,12 +21,11 @@ body {
     background: white;
     border-left: 1px solid #dee2e6;
     overflow-y: auto;
-    / Make sidebar fixed /
     position: fixed;
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: 1000; / Ensure sidebar stays on top */
+    z-index: 1000; 
 }
 .course-node {
     position: absolute;

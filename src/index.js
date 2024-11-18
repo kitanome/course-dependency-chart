@@ -43,7 +43,17 @@ classList.forEach((e)=>
         let name = e.course_id+"\n"+e.name;
         name.replace(e.course_id,'<b>'+e.course_id+'</b>');
         g.setNode(e.course_id,{label:name,height:80,width:200,style:"node node:hover"});
-    }
+
+        d3.select(`#${e.course_id}`).datum(e).on('click', function() {  // Add click event listener
+            // Access the bound data 'e' from the node
+            const course = d3.select(this).datum(); // 'this' refers to the clicked node
+            console.log(course);
+            // console.log("Clicked node data:", courseData);
+            showCourseDetails(course);
+        }
+            // You can now use the courseData object, for example:
+    //         alert(`Course ID: ${courseData.course_id}\nName: ${courseData.name}\nCredits: ${courseData.credits}`);;
+    )}
 );
 
 classList.forEach((e)=>
@@ -61,9 +71,47 @@ g.nodes().forEach(function(v) {
     node.rx = node.ry = 25;
   });
 
+
 let render = new dagreD3.render();
-let svg = d3.select("svg"),svgGroup = svg.append("g");
-d3.select("svg g").call(render,g);
+let svg = d3.select("svg"),
+  svgGroup = svg.append("g");
+
+render(svgGroup, g);
+
+function showDetails(){
+    let elem = d3.select(this);
+    console.log(elem);
+}
+
+function toggleSidebar(){
+
+}
+
+
+function showCourseDetails(course) {
+    // Remove previous selection
+    document.querySelectorAll(".course-node").forEach((node) => {
+      node.classList.remove("selected");
+    });
+  
+    // Add selection to current node
+    document.getElementById(`#${course.course_id}`).classList.add("selected");
+  
+    const prerequisites =
+      course.prerequisites.length > 0 ? course.prerequisites.join(", ") : "None";
+  
+    const sidebar = document.getElementById("sidebar");
+    sidebar.innerHTML = `
+          <h2>${course.name}</h2>
+          <p><strong>Course ID:</strong> ${course.course_id}</p>
+          <p><strong>Credits:</strong> ${course.credits}</p>
+          <p><strong>Prerequisites:</strong> ${prerequisites}</p>
+          <p><strong>Professors:</strong></p>
+          <ul>
+              ${course.professors.map((prof) => `<li>${prof}</li>`).join("")}
+          </ul>
+      `;
+  }
 
 // function redirectUrl()
 // svg.selectAll("g.node").on("click", redirectUrl);
@@ -71,3 +119,4 @@ d3.select("svg g").call(render,g);
 let xCenterOffset = (svg.attr("width") - g.graph().width) / 2;
 svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
 svg.attr("height", g.graph().height + 40);
+

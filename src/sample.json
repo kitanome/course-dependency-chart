@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Introduction to Programming",
+        "course_id": "CS101",
+        "prerequisites": [],
+        "corequisites": [],
+        "credits": 4,
+        "professors": ["Dr. Alice Smith", "Prof. John Doe"]
+    },
+    {
+        "name": "Data Structures and Algorithms",
+        "course_id": "CS201",
+        "prerequisites": ["CS101"],
+        "corequisites": [],
+        "credits": 4,
+        "professors": ["Dr. Emily Turner"]
+    },
+    {
+        "name": "Computer Systems Principles",
+        "course_id": "CS230",
+        "prerequisites": ["CS101"],
+        "corequisites": [],
+        "credits": 4,
+        "professors": ["Prof. Michael Brown", "Dr. Sophia Green"]
+    },
+    {
+        "name": "Web Programming",
+        "course_id": "CS326",
+        "prerequisites": ["CS201"],
+        "corequisites": [],
+        "credits": 3,
+        "professors": ["Dr. Jason Lee"]
+    },
+    {
+        "name": "Discrete Mathematics",
+        "course_id": "MATH210",
+        "prerequisites": [],
+        "corequisites": [],
+        "credits": 3,
+        "professors": ["Dr. Laura Wilson"]
+    },
+    {
+        "name": "Artificial Intelligence",
+        "course_id": "CS410",
+        "prerequisites": ["CS201", "MATH210"],
+        "corequisites": [],
+        "credits": 4,
+        "professors": ["Dr. Andrew Clark"]
+    },
+    {
+        "name": "Operating Systems",
+        "course_id": "CS320",
+        "prerequisites": ["CS201", "CS230"],
+        "corequisites": [],
+        "credits": 4,
+        "professors": ["Prof. Rachel Adams", "Dr. Brian King"]
+    },
+    {
+        "name": "Reasoning Under Uncertainty",
+        "course_id": "CS240",
+        "prerequisites": ["CS201"],
+        "corequisites": [],
+        "credits": 3,
+        "professors": ["Dr. Hannah Taylor"]
+    },
+    {
+        "name": "Introduction to Machine Learning",
+        "course_id": "CS450",
+        "prerequisites": ["CS410", "MATH210"],
+        "corequisites": [],
+        "credits": 4,
+        "professors": ["Dr. William White"]
+    },
+    {
+        "name": "Computer Networks",
+        "course_id": "CS370",
+        "prerequisites": ["CS230"],
+        "corequisites": [],
+        "credits": 3,
+        "professors": ["Prof. Jessica Martinez"]
+    }
+]

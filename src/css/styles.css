@@ -1,0 +1,11 @@
+.node rect {
+    fill: lightgray; /* Set the fill color */
+    stroke: black;   /* Set the border color */
+    stroke-width: 1.5px; /* Set the border thickness */
+  }
+
+.edgePath path {
+      stroke: black;
+      stroke-width: 1.5px;
+      fill: none;
+}

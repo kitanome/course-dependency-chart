@@ -23,4 +23,8 @@
 
 ## Friday, November 15th 2024
 - Graph demo using raw JS and SVG made
-  - [link to commit]()
+  - [link to commit](https://github.com/kitanome/course-dependency-chart/commit/0c2e6671c3ac9fa5777f063aa3fccee8dc8e86db)
+
+## Sunday, November 17th 2024
+- D3.js graph implementation working MVP
+- [link to commit](https://github.com/kitanome/course-dependency-chart/commit/7f05da0c06c50febd46163027c7547558eea280b)

@@ -4,6 +4,7 @@ import { Events } from "../../eventhub/Events.js";
 
 export class FilterComponent extends BaseComponent {
   #container = null;
+  #graph = null;
 
   constructor(filterData = {}) {
     super();
@@ -17,6 +18,7 @@ export class FilterComponent extends BaseComponent {
     }
 
     this.#createContainer();
+    this.#createGraph();
     this.#attachEventListeners();
     return this.#container;
   }
@@ -26,6 +28,10 @@ export class FilterComponent extends BaseComponent {
     this.#container = document.createElement("div");
     this.#container.classList.add("filter-input");
     this.#container.innerHTML = this.#getTemplate();
+  }
+
+  #createGraph() {
+    this.#graph = document.getElementById("graph");
   }
 
   #getTemplate() {
@@ -52,7 +58,19 @@ export class FilterComponent extends BaseComponent {
       return;
     }
 
-    //TODO
-    alert("Implement me");
+    const textNodes = this.#graph.querySelectorAll("text");
+    textNodes.forEach((text) => {
+      console.log(text.textContent);
+      if (text.textContent.toLowerCase().includes(term.toLowerCase()) && term) {
+        // Highlight matching text
+        text.setAttribute("fill", "yellow"); // Change text color
+        text.setAttribute("stroke", "yellow"); // Add an outline
+        console.log(text);
+      } else {
+        // Reset styling for non-matching text
+        text.setAttribute("fill", "black"); // Default text color
+        text.setAttribute("stroke", "none"); // Remove outline
+      }
+    });
   }
 }

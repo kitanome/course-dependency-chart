@@ -2,10 +2,23 @@
     fill: lightgray; /* Set the fill color */
     stroke: black;   /* Set the border color */
     stroke-width: 1.5px; /* Set the border thickness */
+    transition-duration: 0.1s;
   }
 
+text {
+    font-weight: 400;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+  }
+
+.node:hover rect{
+    fill: #ffffff;
+    stroke: #90d5ff;
+    stroke-width: 3px;
+}
+
 .edgePath path {
-      stroke: black;
-      stroke-width: 1.5px;
-      fill: none;
+      stroke: #b4b0b0;
+      stroke-width: 2px;
+      fill: #b4b0b0;
 }

@@ -40,7 +40,9 @@ let g = new dagreD3.graphlib.Graph().setGraph({}).setDefaultEdgeLabel(function()
 
 classList.forEach((e)=>
     {   
-        g.setNode(e.course_id,{label:e.name,height:80,width:200,style:"node"});
+        let name = e.course_id+"\n"+e.name;
+        name.replace(e.course_id,'<b>'+e.course_id+'</b>');
+        g.setNode(e.course_id,{label:name,height:80,width:200,style:"node node:hover"});
     }
 );
 
@@ -53,7 +55,11 @@ classList.forEach((e)=>
     }
 );
 
-g.nodes.forEach()
+g.nodes().forEach(function(v) {
+    var node = g.node(v);
+    // Round the corners of the nodes
+    node.rx = node.ry = 25;
+  });
 
 let render = new dagreD3.render();
 let svg = d3.select("svg"),svgGroup = svg.append("g");

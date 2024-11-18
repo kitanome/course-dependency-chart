@@ -16,3 +16,16 @@
 - **Details**: Reviewed `problems.md` and `features.md` for errors.
 - **Link to Commit**: [problems.md pull request](https://github.com/kitanome/course-dependency-chart/pull/8)
 - **Link to Commit**: [features.md pull request](https://github.com/kitanome/course-dependency-chart/pull/10)
+
+### October 31, 2024
+
+- **Task**: Created a skeleton for the frontend of our project.
+- **Details**: Created a file structure of Components and Events that will serve as building blocks.
+- **Link to Commit** [frontend skeleton](https://github.com/kitanome/course-dependency-chart/commit/1df4e8d42c06ff329396607fe73af2e269fcf6e2)
+
+### November 17, 2024
+
+- **Task**: Filter creation
+- **Details**: Created a filter that highlights text based on user input. Uses `FilterComponent`. First commit created a text box in the dom without actual filtering. Second commit implemented the filter.
+- **Link to Commit** [Initial commit](https://github.com/kitanome/course-dependency-chart/commit/d0acefa0e9e5d445aa63f4723095b78d3af8d4db)
+- **Link to Commit** [Functionality added](https://github.com/kitanome/course-dependency-chart/commit/fe4700309a186b6ad3994a56987c3db753789314)

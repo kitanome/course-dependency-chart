@@ -1,3 +1,4 @@
+
 import { AppControllerComponent } from './components/AppControllerComponent/AppControllerComponent.js';
 
 const appController = new AppControllerComponent();
@@ -78,3 +79,4 @@ d3.select("svg g").call(render,g);
 let xCenterOffset = (svg.attr("width") - g.graph().width) / 2;
 svgGroup.attr("transform", "translate(" + xCenterOffset + ", 20)");
 svg.attr("height", g.graph().height + 40);
+

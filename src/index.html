@@ -7,12 +7,14 @@
   </head>
   <body>
     <link rel="stylesheet" href="css/styles.css" />
-    <div id="container">
-    <svg id="graph-container" width="1920" height="1080"><g/></svg>
-    </div>
-    <div id="sidebar">
-      <div class="no-course-selected">
-        Click on a course to view its details
+    <div id="main-container">
+      <div id="graph-container">
+      <svg id="graph" width="1920" height="1080"><g/></svg>
+      </div>
+      <div id="sidebar">
+        <div class="no-course-selected">
+          Click on a course to view its details
+        </div>
       </div>
     </div>
     <script src="https://dagrejs.github.io/project/dagre/latest/dagre.min.js"></script>

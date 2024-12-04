@@ -1,9 +1,30 @@
 import { AppControllerComponent } from "./components/AppControllerComponent/AppControllerComponent.js";
 const appController = new AppControllerComponent();
 const appContainer = document.getElementById("app");
+
+
+
+/*
+Render components.
+*/
 appContainer.appendChild(appController.render());
 
-let classList = await fetch("./sample.json")
+
+
+/* obtains the classList as a list of Objects.
+* each class has the object format:
+class {
+  'course_id' : String,
+  'name' : String,
+  'description' : String,
+  'prerequisites' : [String], // list of course_id
+  'corequisites' : [String] // list of course_id
+  'credits' : number,
+  'professors' : [String] . // list of prof_id
+}
+*/
+
+let classList = await fetch("./src/sample.json")
   .then((res) => {
     if (!res.ok) {
       throw new Error(`HTTP Error`);
@@ -17,13 +38,17 @@ let classList = await fetch("./sample.json")
     throw new Error("Error obtaining json file", error);
   });
 
+
+
+/*Create a new graph layout. */
+
 let g = new dagreD3.graphlib.Graph()
   .setGraph({})
   .setDefaultEdgeLabel(function () {
     return {};
   });
 
-// Add nodes to the graph
+// Add nodes to the graph, and connect them to prerequisites.
 classList.forEach((e) => {
   let name = e.course_id + "\n" + e.name;
 
@@ -60,6 +85,11 @@ inner.selectAll("g.node").attr("id", (d) => d);
 // Render the graph into the SVG
 render(inner, g);
 
+
+/*
+This is a very makeshift attempt at a event handler.
+! Current problem is that I cannot access the bind data by clicking on the node so I have to infer the content from the label.
+ */
 d3.selectAll("g.node")
   .style("cursor", "pointer")
   .on("click", (event, d) => {
@@ -79,6 +109,11 @@ d3.selectAll("g.node")
       showCourseDetails(nodeData.courseData);
     }
   });
+
+
+/*
+! Right now the code is taking professors name as plain text and not by prof_id as proposed in data.md. Need discussion on how to proceed.
+*/
 
 function showCourseDetails(course) {
   const prerequisites =

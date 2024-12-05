@@ -19,7 +19,7 @@ export class GraphComponent extends BaseComponent{
     }
     
     async #getClassData(){
-        let link = './src/components/GraphComponent/sample.json';
+        let link = './components/GraphComponent/sample.json';
         let promiseResult = await fetch(link)
         .then((res) => {
             if (!res.ok) {
@@ -37,25 +37,20 @@ export class GraphComponent extends BaseComponent{
         return promiseResult;
     }
 
-    #createContainer(){
+    #createContainer(classList){
         this.#container = document.createElement('div');
         this.#container.id = "graph-container";
         this.#container.innerHTML = this.#getTemplate();
 
-        this.#graph = new dagreD3.graphlib.Graph()
-          .setGraph({})
-          .setDefaultEdgeLabel(function () {
-            return {};
-          });
-        this.#generateGraph();
-        this.#attachEventListeners();
-
-        const render = new dagreD3.render();
-        const svg = d3.select("svg");
-        const inner = svg.append("g");
         
-        inner.selectAll("g.node").attr("id", (d) => d);
-        render(inner,this.#graph);
+        this.#graph = new dagreD3.graphlib.Graph()
+        .setGraph({})
+        .setDefaultEdgeLabel(function () {
+        return {};
+        });
+          
+        this.#generateGraph(classList);
+        this.#attachEventListeners();
     }
 
     #getTemplate(){
@@ -103,7 +98,7 @@ export class GraphComponent extends BaseComponent{
         classList.forEach((e) => {
           if (e.prerequisites.length > 0) {
             e.prerequisites.forEach((classes) => {
-              g.setEdge(classes, e.course_id);
+              this.#graph.setEdge(classes, e.course_id);
             });
           }
         });
@@ -122,9 +117,9 @@ export class GraphComponent extends BaseComponent{
         inner.selectAll("g.node").attr("id", (d) => d);
         
         // Render the graph into the SVG
-        // render(inner, this.#graph);
+        render(inner, this.#graph);
 
-        let xCenterOffset = (svg.attr("width") - g.graph().width) / 2;
+        let xCenterOffset = (svg.attr("width") - this.#graph.graph().width) / 2;
         inner.attr("transform", "translate(" + xCenterOffset + ", 20)");
         svg.attr("height", g.graph().height + 40).attr("width", g.graph().width + 1000);
         

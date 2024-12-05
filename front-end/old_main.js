@@ -1,4 +1,4 @@
-import { AppControllerComponent } from "./components/AppControllerComponent/AppControllerComponent.js";
+import { AppControllerComponent } from "./src/components/AppControllerComponent/AppControllerComponent.js";
 const appController = new AppControllerComponent();
 const appContainer = document.getElementById("app");
 

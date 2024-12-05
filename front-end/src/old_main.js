@@ -27,7 +27,7 @@ class {
 }
 */
 
-let classList = await fetch("./components/GraphComponent/sample.json")
+let classList = await fetch("./src/sample.json")
   .then((res) => {
     if (!res.ok) {
       throw new Error(`HTTP Error`);

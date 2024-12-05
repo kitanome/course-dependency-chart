@@ -1,4 +1,6 @@
 import { BaseComponent } from "../BaseComponent/BaseComponent.js";
+import { EventHub } from "../../eventhub/EventHub.js";
+import { Events } from "../../eventhub/Events.js";
 export class GraphComponent extends BaseComponent{
     #container = null;
     #graph = null;
@@ -53,12 +55,40 @@ export class GraphComponent extends BaseComponent{
     }
 
     #attachEventListeners(){
+        //subscribe the nodes to a 'filter' event
+        const hub = EventHub.getInstance();
+        hub.subscribe('filter',term => this.#handleFilter(term));
+
+        //publish a 'courseSelect' event when a node is clicked
         d3.selectAll("g.node")
         .style("cursor", "pointer")
         .on("click", (event, d) => {
             // Updated event handler signature
             // Get the clicked element
-            const clickedElement = d3.select(event.currentTarget);
+            this.#handleSelect(event);
+        });
+    }
+
+    #handleFilter(term){
+      let svg = document.getElementById("graph");
+      const textNodes = svg.querySelectorAll("text");
+      textNodes.forEach((text) => {
+        console.log(text.textContent);
+        if (text.textContent.toLowerCase().includes(term.toLowerCase()) && term) {
+          // Highlight matching text
+          text.setAttribute("fill", "yellow"); // Change text color
+          text.setAttribute("stroke", "yellow"); // Add an outline
+          console.log(text);
+        } else {
+          // Reset styling for non-matching text
+          text.setAttribute("fill", "black"); // Default text color
+          text.setAttribute("stroke", "none"); // Remove outline
+        }
+      });
+    }
+
+    #handleSelect(event){
+        const clickedElement = d3.select(event.currentTarget);
             // Extract the node id from the element
             console.log("extracting");
             const input = clickedElement.select("text").text();
@@ -69,11 +99,15 @@ export class GraphComponent extends BaseComponent{
             const nodeData = this.#graph.node(nodeId);
             // Call showCourseDetails with the stored course data
             if (nodeData && nodeData.courseData) {
-            showCourseDetails(nodeData.courseData);
+            this.#publishNewTask('courseSelect',nodeData.courseData);
             }
-        });
     }
 
+    #publishNewTask(task,course){
+        const hub = EventHub.getInstance();
+        hub.publish(task,course)
+    }
+    
     async generateGraph(){
         let classList = await this.#getClassData();
         this.#graph = new dagreD3.graphlib.Graph()
@@ -109,11 +143,6 @@ export class GraphComponent extends BaseComponent{
         });
         
         // Layout the graph
-        let svg_container = document.createElement("svg");
-        svg_container.id = "graph";
-        svg_container.setAttribute("width","1920");
-        svg_container.setAttribute("height","1080");
-        this.#container.appendChild(svg_container);
         const render = new dagreD3.render();
         const svg = d3.select("#graph");
         const inner = svg.append("g");

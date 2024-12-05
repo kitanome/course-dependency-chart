@@ -8,19 +8,38 @@ export class GraphComponent extends BaseComponent{
         this.graphData = graphData;
         this.loadCSS('GraphComponent');
     }
-
     
-    render(){
-        link = "./sample.json";
+    
+    async render(){
+        let classList = await this.#getClassData();
 
-        this.#createContainer();
+        this.#createContainer(classList);
 
         return this.#container;
+    }
+    
+    async #getClassData(){
+        let link = './src/components/GraphComponent/sample.json';
+        let promiseResult = await fetch(link)
+        .then((res) => {
+            if (!res.ok) {
+              throw new Error(`HTTP Error`);
+            }
+            return res.json();
+          })
+          .then((data) => {
+            return data;
+          })
+          .catch((error) => {
+            throw new Error("Error obtaining json file", error);
+          });
+
+        return promiseResult;
     }
 
     #createContainer(){
         this.#container = document.createElement('div');
-        this.#container.classList.add("graph-container");
+        this.#container.id = "graph-container";
         this.#container.innerHTML = this.#getTemplate();
 
         this.#graph = new dagreD3.graphlib.Graph()
@@ -30,6 +49,13 @@ export class GraphComponent extends BaseComponent{
           });
         this.#generateGraph();
         this.#attachEventListeners();
+
+        const render = new dagreD3.render();
+        const svg = d3.select("svg");
+        const inner = svg.append("g");
+        
+        inner.selectAll("g.node").attr("id", (d) => d);
+        render(inner,this.#graph);
     }
 
     #getTemplate(){
@@ -60,21 +86,7 @@ export class GraphComponent extends BaseComponent{
         });
     }
 
-    async #generateGraph(link){
-        let classList = await fetch(link)
-        .then((res) => {
-            if (!res.ok) {
-              throw new Error(`HTTP Error`);
-            }
-            return res.json();
-          })
-          .then((data) => {
-            return data;
-          })
-          .catch((error) => {
-            throw new Error("Error obtaining json file", error);
-          });
-        
+    async #generateGraph(classList){
         // Add nodes to the graph, and connect them to prerequisites.
         classList.forEach((e) => {
           let name = e.course_id + "\n" + e.name;
@@ -110,7 +122,7 @@ export class GraphComponent extends BaseComponent{
         inner.selectAll("g.node").attr("id", (d) => d);
         
         // Render the graph into the SVG
-        render(inner, this.#graph);
+        // render(inner, this.#graph);
 
         let xCenterOffset = (svg.attr("width") - g.graph().width) / 2;
         inner.attr("transform", "translate(" + xCenterOffset + ", 20)");

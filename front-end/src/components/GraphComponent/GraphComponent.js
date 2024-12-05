@@ -34,7 +34,7 @@ export class GraphComponent extends BaseComponent{
     }
     
     async #getClassData(){
-        let link = './components/GraphComponent/sample.json';
+        let link = './src/sample.json';
         let promiseResult = await fetch(link)
         .then((res) => {
             if (!res.ok) {
@@ -123,10 +123,10 @@ export class GraphComponent extends BaseComponent{
         // Render the graph into the SVG
         render(inner, this.#graph);
 
-        // let xCenterOffset = (svg.attr("width") - this.#graph.graph().width) / 2;
-        // inner.attr("transform", "translate(" + xCenterOffset + ", 20)");
-        // svg.attr("height", this.#graph.graph().height + 40).attr("width", this.#graph.graph().width + 1000);
-        
+        let xCenterOffset = (svg.attr("width") - this.#graph.graph().width) / 2;
+        inner.attr("transform", "translate(" + xCenterOffset + ", 20)");
+        svg.attr("height", this.#graph.graph().height + 40).attr("width", this.#graph.graph().width + 1000);
+        this.#attachEventListeners();
     }
 
 }

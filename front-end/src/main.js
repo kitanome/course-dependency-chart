@@ -1,5 +1,5 @@
-import { FilterComponent } from "./src/components/FilterComponent/FilterComponent.js";
-import { GraphComponent } from "./src/components/GraphComponent/GraphComponent.js";
+import { FilterComponent } from "./components/FilterComponent/FilterComponent.js";
+import { GraphComponent } from "./components/GraphComponent/GraphComponent.js";
 
 const app = document.getElementById("app");
 

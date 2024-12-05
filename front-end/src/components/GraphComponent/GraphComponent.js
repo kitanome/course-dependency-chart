@@ -10,12 +10,27 @@ export class GraphComponent extends BaseComponent{
     }
     
     
-    async render(){
-        let classList = await this.#getClassData();
-
-        this.#createContainer(classList);
+    render(){
+        if (this.#container){
+            return this.#container;
+        }
+        this.#createContainer(); 
+        // this.#attachEventListeners();
 
         return this.#container;
+    }
+
+    
+    #createContainer(){
+        this.#container = document.createElement('div');
+        this.#container.classList.add("graph-component");
+        this.#container.innerHTML = this.#getTemplate();
+    }
+
+    #getTemplate(){
+        return `
+        <svg id="graph" width="1920" height="1080"><g/></svg>
+        `;
     }
     
     async #getClassData(){
@@ -35,28 +50,6 @@ export class GraphComponent extends BaseComponent{
           });
 
         return promiseResult;
-    }
-
-    #createContainer(classList){
-        this.#container = document.createElement('div');
-        this.#container.id = "graph-container";
-        this.#container.innerHTML = this.#getTemplate();
-
-        
-        this.#graph = new dagreD3.graphlib.Graph()
-        .setGraph({})
-        .setDefaultEdgeLabel(function () {
-        return {};
-        });
-          
-        this.#generateGraph(classList);
-        this.#attachEventListeners();
-    }
-
-    #getTemplate(){
-        return `
-        <svg id="graph" width="1920" height="1080"><g/></svg>
-        `
     }
 
     #attachEventListeners(){
@@ -81,7 +74,13 @@ export class GraphComponent extends BaseComponent{
         });
     }
 
-    async #generateGraph(classList){
+    async generateGraph(){
+        let classList = await this.#getClassData();
+        this.#graph = new dagreD3.graphlib.Graph()
+        .setGraph({})
+        .setDefaultEdgeLabel(function () {
+        return {};
+        });
         // Add nodes to the graph, and connect them to prerequisites.
         classList.forEach((e) => {
           let name = e.course_id + "\n" + e.name;
@@ -103,15 +102,20 @@ export class GraphComponent extends BaseComponent{
           }
         });
         
-        this.#graph.nodes().forEach(function (v) {
+        this.#graph.nodes().forEach((v)=>{
           var node = this.#graph.node(v);
           // Round the corners of the nodes
           node.rx = node.ry = 25;
         });
         
         // Layout the graph
+        let svg_container = document.createElement("svg");
+        svg_container.id = "graph";
+        svg_container.setAttribute("width","1920");
+        svg_container.setAttribute("height","1080");
+        this.#container.appendChild(svg_container);
         const render = new dagreD3.render();
-        const svg = d3.select("svg");
+        const svg = d3.select("#graph");
         const inner = svg.append("g");
         
         inner.selectAll("g.node").attr("id", (d) => d);
@@ -119,9 +123,9 @@ export class GraphComponent extends BaseComponent{
         // Render the graph into the SVG
         render(inner, this.#graph);
 
-        let xCenterOffset = (svg.attr("width") - this.#graph.graph().width) / 2;
-        inner.attr("transform", "translate(" + xCenterOffset + ", 20)");
-        svg.attr("height", g.graph().height + 40).attr("width", g.graph().width + 1000);
+        // let xCenterOffset = (svg.attr("width") - this.#graph.graph().width) / 2;
+        // inner.attr("transform", "translate(" + xCenterOffset + ", 20)");
+        // svg.attr("height", this.#graph.graph().height + 40).attr("width", this.#graph.graph().width + 1000);
         
     }
 

@@ -8,3 +8,5 @@ const graph = new GraphComponent();
 
 app.appendChild(filter.render());
 app.appendChild(graph.render());
+graph.generateGraph();
+

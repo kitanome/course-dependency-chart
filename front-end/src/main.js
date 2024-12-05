@@ -1,14 +1,17 @@
 import { AppControllerComponent } from "./components/AppControllerComponent/AppControllerComponent.js";
+import { SidebarComponent } from "./components/SidebarComponent/SidebarComponent.js";
+
 const appController = new AppControllerComponent();
 const appContainer = document.getElementById("app");
 
-
+// Initialize sidebar
+const sidebar = new SidebarComponent();
 
 /*
 Render components.
 */
 appContainer.appendChild(appController.render());
-
+document.body.appendChild(sidebar.render());
 
 
 /* obtains the classList as a list of Objects.
@@ -106,7 +109,7 @@ d3.selectAll("g.node")
     const nodeData = g.node(nodeId);
     // Call showCourseDetails with the stored course data
     if (nodeData && nodeData.courseData) {
-      showCourseDetails(nodeData.courseData);
+      sidebar.showCourseDetails(nodeData.courseData);
     }
   });
 
@@ -115,6 +118,10 @@ d3.selectAll("g.node")
 ! Right now the code is taking professors name as plain text and not by prof_id as proposed in data.md. Need discussion on how to proceed.
 */
 
+
+// Function now in SidebarComponent.js
+
+/*
 function showCourseDetails(course) {
   const prerequisites =
     course.prerequisites.length > 0 ? course.prerequisites.join(", ") : "None";
@@ -131,6 +138,7 @@ function showCourseDetails(course) {
     </ul>
     `;
 }
+*/
 
 // function redirectUrl()
 // svg.selectAll("g.node").on("click", redirectUrl);

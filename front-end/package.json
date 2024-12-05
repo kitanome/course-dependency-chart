@@ -1,7 +1,13 @@
 {
-  "type":"commonjs",
+  "type": "commonjs",
+  "scripts": {
+    "start": "http-server -p 3000"
+  },
   "dependencies": {
     "@dagrejs/dagre": "^1.1.4",
     "dagre-d3": "^0.6.4"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
   }
 }

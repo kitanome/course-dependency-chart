@@ -34,6 +34,7 @@ export class SidebarComponent extends BaseComponent {
 
   /**
    * Updates the sidebar content with the provided course details.
+   * function is called when a course node is selected
    * @param {Object} course - The course data to display.
    */
   showCourseDetails(course) {

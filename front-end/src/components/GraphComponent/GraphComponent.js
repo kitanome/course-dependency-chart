@@ -8,48 +8,27 @@ export class GraphComponent extends BaseComponent{
         this.graphData = graphData;
         this.loadCSS('GraphComponent');
     }
-    
-    
-    async render(){
-        let classList = await this.#getClassData();
 
-        this.#createContainer(classList);
+    
+    render(){
+        link = "./sample.json";
+
+        this.#createContainer();
 
         return this.#container;
     }
-    
-    async #getClassData(){
-        let link = './components/GraphComponent/sample.json';
-        let promiseResult = await fetch(link)
-        .then((res) => {
-            if (!res.ok) {
-              throw new Error(`HTTP Error`);
-            }
-            return res.json();
-          })
-          .then((data) => {
-            return data;
-          })
-          .catch((error) => {
-            throw new Error("Error obtaining json file", error);
-          });
 
-        return promiseResult;
-    }
-
-    #createContainer(classList){
+    #createContainer(){
         this.#container = document.createElement('div');
-        this.#container.id = "graph-container";
+        this.#container.classList.add("graph-container");
         this.#container.innerHTML = this.#getTemplate();
 
-        
         this.#graph = new dagreD3.graphlib.Graph()
-        .setGraph({})
-        .setDefaultEdgeLabel(function () {
-        return {};
-        });
-          
-        this.#generateGraph(classList);
+          .setGraph({})
+          .setDefaultEdgeLabel(function () {
+            return {};
+          });
+        this.#generateGraph();
         this.#attachEventListeners();
     }
 
@@ -98,7 +77,7 @@ export class GraphComponent extends BaseComponent{
         classList.forEach((e) => {
           if (e.prerequisites.length > 0) {
             e.prerequisites.forEach((classes) => {
-              this.#graph.setEdge(classes, e.course_id);
+              g.setEdge(classes, e.course_id);
             });
           }
         });

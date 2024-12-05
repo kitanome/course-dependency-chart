@@ -51,6 +51,13 @@ export class GraphComponent extends BaseComponent{
           
         this.#generateGraph(classList);
         this.#attachEventListeners();
+
+        const render = new dagreD3.render();
+        const svg = d3.select("svg");
+        const inner = svg.append("g");
+        
+        inner.selectAll("g.node").attr("id", (d) => d);
+        render(inner,this.#graph);
     }
 
     #getTemplate(){
@@ -117,7 +124,7 @@ export class GraphComponent extends BaseComponent{
         inner.selectAll("g.node").attr("id", (d) => d);
         
         // Render the graph into the SVG
-        render(inner, this.#graph);
+        // render(inner, this.#graph);
 
         let xCenterOffset = (svg.attr("width") - this.#graph.graph().width) / 2;
         inner.attr("transform", "translate(" + xCenterOffset + ", 20)");

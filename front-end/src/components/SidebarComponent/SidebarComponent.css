@@ -4,7 +4,7 @@
 #sidebar ul,
 #sidebar li,
 #sidebar * {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-block-start: 1em;
     margin-block-end: 1em;
 }
@@ -22,7 +22,7 @@
     bottom: 0;
     /* Puts sidebar above other content */
     z-index: 1000;
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Course title */

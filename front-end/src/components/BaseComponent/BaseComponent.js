@@ -19,7 +19,7 @@ export class BaseComponent {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     // Dynamically load CSS from the same directory as the JS file
-    link.href = `./components/${fileName}/${fileName}.css`;
+    link.href = `./src/components/${fileName}/${fileName}.css`;
     document.head.appendChild(link);
     this.cssLoaded = true;
   }

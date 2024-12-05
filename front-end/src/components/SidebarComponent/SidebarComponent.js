@@ -49,7 +49,11 @@ export class SidebarComponent extends BaseComponent {
       <p><strong>Prerequisites:</strong> ${prerequisites}</p>
       <p><strong>Professors:</strong></p>
       <ul>
-        ${course.professors.map((prof) => `<li>${prof}</li>`).join("")}
+       ${
+         Array.isArray(course.professors) && course.professors.length > 0
+           ? course.professors.map((prof) => `<li>${prof}</li>`).join("")
+           : "<li>No professors listed</li>"
+       }
       </ul>
     `;
   }

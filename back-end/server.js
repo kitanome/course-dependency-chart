@@ -11,8 +11,8 @@ const port = 3000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get("/", (req, res) => {
+	res.send("Hello World!");
 });
 
 app.post("/users", validateUser, async (req, res) => {
@@ -24,13 +24,13 @@ app.post("/users", validateUser, async (req, res) => {
 	}
 });
 
-app.post('/courses', async (req, res) => {
-  try {
-    const course = await Course.create(req.body);
-    res.status(201).json(course);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+app.post("/courses", async (req, res) => {
+	try {
+		const course = await Course.create(req.body);
+		res.status(201).json(course);
+	} catch (error) {
+		res.status(400).json({ error: error.message });
+	}
 });
 
 // Get all users
@@ -66,9 +66,9 @@ app.use((err, req, res, next) => {
 async function main() {
 	await initializeDatabase();
 
-  app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-  });
+	app.listen(port, () => {
+		console.log(`Server is running on http://localhost:${port}`);
+	});
 }
 
-main().catch(err => console.error('Error:', err));
+main().catch((err) => console.error("Error:", err));

@@ -1,5 +1,5 @@
 import sequelize from "../database.js";
-import User from "./model/UserModel.js";
+import User from "../model/UserModel.js";
 import Course from "../model/CourseModel.js";
 
 export async function initializeDatabase() {

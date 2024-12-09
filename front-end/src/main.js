@@ -75,8 +75,6 @@ app.appendChild(filter.render());
 app.appendChild(graph.render());
 graph.generateGraph();
 
-app.appendChild(sidebar.render());
-
 /* obtains the classList as a list of Objects.
 * each class has the object format:
 class {

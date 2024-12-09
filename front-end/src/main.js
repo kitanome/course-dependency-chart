@@ -1,4 +1,16 @@
+import { LoginComponent } from "./components/LoginComponent/LoginComponent.js";
+
 console.log("main.js is loading");
+
+// Initialize login component
+const loginComponent = new LoginComponent();
+document.body.appendChild(loginComponent.render());
+
+// Listen for successful login
+document.addEventListener("loginSuccess", async () => {
+	console.log("Login successful, loading courses...");
+	await loadCourses();
+});
 
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {

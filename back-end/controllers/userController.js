@@ -1,7 +1,6 @@
 import User from "../model/UserModel.js";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
-import { EventHub } from "../../front-end/src/eventhub/EventHub.js";
 
 
 const existUser = async(username) => {
@@ -51,8 +50,4 @@ export const logout = (req, res) => {
 		}
 		res.status(200).json({message: "Logout successful"});
 	})
-}
-
-export const getProfile = (req,res) => {
-	res.status(200).json({message: `Welcome, ${req.user.username}`});
 }

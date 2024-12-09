@@ -1,7 +1,6 @@
 import User from "../models/UserModel.js";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
-import { EventHub } from "../../front-end/src/eventhub/EventHub.js";
 
 
 const existUser = async(username) => {

@@ -53,6 +53,9 @@ app.use("/api", userRoutes);
 //Use routes from routes.js
 // app.use("/",routes);
 
+//Use routes from routes.js
+// app.use("/",routes);
+
 async function main() {
 	try {
 		await sequelize.sync({ force: true });

@@ -7,6 +7,12 @@ const router = express.Router();
 
 // Login route
 router.post("/login", login);
+// router.post("/login/auth",
+//     passport.authenticate('local',{
+//         successRedirect:'/',
+//         failureRedirect:'/login',
+//     })
+// )
 
 // Create new user
 router.post("/users", createUser);

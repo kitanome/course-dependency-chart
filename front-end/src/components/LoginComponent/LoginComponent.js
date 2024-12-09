@@ -54,7 +54,47 @@ export class LoginComponent {
 	}
 
 	render() {
-		// If you want to create the login form dynamically in the future
+		this.loginContainer = document.createElement("div");
+		this.loginContainer.id = "login-container";
+
+		const form = document.createElement("form");
+		form.id = "login-form";
+
+		// Username input group
+		const usernameGroup = document.createElement("div");
+		usernameGroup.className = "form-group";
+		this.usernameInput = document.createElement("input");
+		this.usernameInput.type = "text";
+		this.usernameInput.id = "username-input";
+		this.usernameInput.placeholder = "Username";
+		usernameGroup.appendChild(this.usernameInput);
+
+		// Password input group
+		const passwordGroup = document.createElement("div");
+		passwordGroup.className = "form-group";
+		this.passwordInput = document.createElement("input");
+		this.passwordInput.type = "password";
+		this.passwordInput.id = "password-input";
+		this.passwordInput.placeholder = "Password";
+		passwordGroup.appendChild(this.passwordInput);
+
+		// Login button
+		this.loginButton = document.createElement("button");
+		this.loginButton.id = "login-button";
+		this.loginButton.textContent = "Login";
+
+		// Message container
+		const messageDiv = document.createElement("div");
+		messageDiv.id = "login-message";
+
+		// Append all elements
+		form.appendChild(usernameGroup);
+		form.appendChild(passwordGroup);
+		form.appendChild(this.loginButton);
+		form.appendChild(messageDiv);
+		this.loginContainer.appendChild(form);
+
+		this.init(); // Initialize event listeners after creating elements
 		return this.loginContainer;
 	}
 }

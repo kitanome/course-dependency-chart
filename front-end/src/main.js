@@ -9,7 +9,8 @@ import { LoginComponent } from "./components/LoginComponent/LoginComponent.js";
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
 	console.log("DOM Content Loaded");
-	new LoginComponent();
+	const loginComponent = new LoginComponent();
+	document.body.appendChild(loginComponent.render());
 });
 
 const app = document.getElementById("app");
@@ -22,8 +23,6 @@ app.appendChild(filter.render());
 // ERROR: Double graph render
 app.appendChild(graph.render());
 graph.generateGraph();
-
-app.appendChild(sidebar.render());
 
 /* obtains the classList as a list of Objects.
 * each class has the object format:

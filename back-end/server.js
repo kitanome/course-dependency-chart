@@ -5,8 +5,11 @@ import SequelizeStore from "connect-session-sequelize";
 import cors from "cors";
 import courseRoutes from "./routes/courseRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-import User from "./models/UserModel.js";
-import Course from "./models/CourseModel.js";
+import User from "./model/UserModel.js";
+import Course from "./model/CourseModel.js";
+import { Sequelize } from "sequelize";
+import passport from "./auth/passport.js";
+import bcrypt from "bcryptjs";
 
 const app = express();
 const port = 3000;
@@ -49,15 +52,16 @@ app.get("/", (req, res) => {
 
 async function main() {
 	try {
-    await sequelize.sync();
-    console.log("Database synced!");
+		await sequelize.sync({ force: true });
+		console.log("Database synced!");
+		const password = await bcrypt.hash("123",10);
 
-    // Create test user
-    // const user = await User.create({
-    //   username: "test",
-    //   password: "123",
-    // });
-    // console.log("Test user created:", user.toJSON());
+		// Create test data
+		const user = await User.create({
+			username: "test",
+			password: password,
+		});
+		console.log("Test user created:", user.toJSON());
 
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);

@@ -111,28 +111,40 @@ export class GraphComponent extends BaseComponent {
 
   async generateGraph() {
     let classList = await this.#getClassData();
+    const IDList = classList.map((course) => course.course_id);
+
+    //convert names to set to remove duplicates
+    const uniqueIDList = new Set(IDList);
+
     this.#graph = new dagreD3.graphlib.Graph()
       .setGraph({})
       .setDefaultEdgeLabel(function () {
         return {};
       });
     // Add nodes to the graph, and connect them to prerequisites.
-    classList.forEach((e) => {
-      let name = e.course_id + "\n" + e.name;
 
-      this.#graph.setNode(e.course_id, {
-        label: name,
-        height: 80,
-        width: 200,
-        style: "node node:hover",
-        courseData: e,
-      });
+    classList.forEach((e) => {
+      if (uniqueIDList.has(e.course_id)) {
+        let name = e.course_id + "\n" + e.name;
+
+        this.#graph.setNode(e.course_id, {
+          label: name,
+          height: 80,
+          width: 200,
+          style: "node node:hover",
+          courseData: e,
+        });
+      }
     });
 
     classList.forEach((e) => {
       if (e.prerequisites.length > 0) {
-        e.prerequisites.forEach((classes) => {
-          this.#graph.setEdge(classes, e.course_id);
+        e.prerequisites.forEach((prereq) => {
+          if (!uniqueIDList.has(prereq)) {
+            // Skip if the prereq is not in the known courses list
+            return;
+          }
+          this.#graph.setEdge(prereq, e.course_id);
         });
       }
     });

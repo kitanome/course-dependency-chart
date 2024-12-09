@@ -28,3 +28,14 @@
 ## Sunday, November 17th 2024
 - D3.js graph implementation working MVP
 - [link to commit](https://github.com/kitanome/course-dependency-chart/commit/7f05da0c06c50febd46163027c7547558eea280b)
+
+## Dec 1st
+
+## Dec 3th
+
+
+## Dec 7th
+
+## Dec 8th
+
+## Dec 9th

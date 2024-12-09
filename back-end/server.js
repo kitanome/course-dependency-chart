@@ -3,8 +3,8 @@ import sequelize from "./database.js";
 import cors from "cors";
 import courseRoutes from "./routes/courseRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-import User from "./model/UserModel.js";
-import Course from "./model/CourseModel.js";
+import User from "./models/UserModel.js";
+import Course from "./models/CourseModel.js";
 
 const app = express();
 const port = 3000;

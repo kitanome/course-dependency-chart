@@ -1,44 +1,46 @@
-#sidebar h2, 
+#sidebar h2,
 #sidebar p,
 #sidebar strong,
 #sidebar ul,
 #sidebar li,
 #sidebar * {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
 }
 
 #sidebar {
-    width: 300px;
-    padding: 20px;
-    background: white;
-    border-left: 1px solid #dee2e6;
-    /* Scrolling is enabled for overflow messages */
-    overflow-y: auto;
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    /* Puts sidebar above other content */
-    z-index: 1000;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	width: 300px;
+	padding: 20px;
+	background: white;
+	border-left: 1px solid #dee2e6;
+	/* Scrolling is enabled for overflow messages */
+	overflow-y: auto;
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	/* Puts sidebar above other content */
+	z-index: 1000;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 /* Course title */
 #sidebar h2 {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 /* Professor list */
 #sidebar ul {
-    list-style-type: disc;
-    padding-left: 20px;
+	list-style-type: disc;
+	padding-left: 20px;
 }
 
 /* Placeholder message when no course is selected */
 .no-course-selected {
-    color: #6c757d;
-    font-style: italic;
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+	color: #6c757d;
+	font-style: italic;
+	font-family: Georgia, Cambria, "Times New Roman", Times, serif;
 }

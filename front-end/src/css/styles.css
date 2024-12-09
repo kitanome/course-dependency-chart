@@ -1,56 +1,99 @@
 .node rect {
-    fill: lightgray; /* Set the fill color */
-    stroke: black;   /* Set the border color */
-    stroke-width: 1.5px; /* Set the border thickness */
-    transition-duration: 0.1s;
-  }
+	fill: lightgray; /* Set the fill color */
+	stroke: black; /* Set the border color */
+	stroke-width: 1.5px; /* Set the border thickness */
+	transition-duration: 0.1s;
+}
 
 text {
-    font-weight: 400;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 14px;
-  }
+	font-weight: 400;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	font-size: 14px;
+}
 
-.node:hover rect{
-    fill: #ffffff;
-    stroke: #90d5ff;
-    stroke-width: 3px;
+.node:hover rect {
+	fill: #ffffff;
+	stroke: #90d5ff;
+	stroke-width: 3px;
 }
 
 .edgePath path {
-      stroke: #b4b0b0;
-      stroke-width: 2px;
-      fill: #b4b0b0;
+	stroke: #b4b0b0;
+	stroke-width: 2px;
+	fill: #b4b0b0;
 }
 
 #main-container {
-    margin: 0;
-    padding: 0;
-    font-family: system-ui, sans-serif;
-    display: flex;
-    height: 100vh;
-    overflow: scroll;
+	margin: 0;
+	padding: 0;
+	font-family: system-ui, sans-serif;
+	display: flex;
+	height: 100vh;
+	overflow: scroll;
 }
 #graph-container {
-    flex: content;
-    position: relative;
-    overflow: auto;
-    background: #f8f9fa;
-    height: 100%;
-    width: 100lh;
+	flex: content;
+	position: relative;
+	overflow: auto;
+	background: #f8f9fa;
+	height: 100%;
+	width: 100lh;
 }
 
 #sidebar {
-    width: 300px;
-    padding: 20px;
-    background: white;
-    border-left: 1px solid #dee2e6;
-    overflow-y: auto;
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1000; 
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+	width: 300px;
+	padding: 20px;
+	background: white;
+	border-left: 1px solid #dee2e6;
+	overflow-y: auto;
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1000;
+	font-family: Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
+#login-container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+}
+
+#login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.form-group input {
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	width: 200px;
+}
+
+#login-button {
+	padding: 10px;
+	background: #007bff;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#login-button:hover {
+	background: #0056b3;
+}
+
+#login-message {
+	color: red;
+	text-align: center;
+}

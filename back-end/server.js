@@ -14,8 +14,8 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/api', courseRoutes);
-app.use('/api', userRoutes);
+app.use("/api", courseRoutes);
+app.use("/api", userRoutes);
 
 // Test route
 app.get("/", (req, res) => {
@@ -30,7 +30,7 @@ async function main() {
 		// Create test data
 		const user = await User.create({
 			username: "test",
-			password: "123"
+			password: "123",
 		});
 		console.log("Test user created:", user.toJSON());
 
@@ -41,18 +41,18 @@ async function main() {
 			prerequisites: ["MATH101"],
 			corequisites: [],
 			credits: 3,
-			professors: ["prof123"]
+			professors: ["prof123"],
 		});
 		console.log("Test course created:", course.toJSON());
 
 		app.listen(port, () => {
 			console.log(`Server running at http://localhost:${port}`);
-			console.log('Available routes:');
-			console.log('- GET  /');
-			console.log('- GET  /api/courses');
-			console.log('- POST /api/login');
-			console.log('- POST /api/users');
-			console.log('- POST /api/courses');
+			console.log("Available routes:");
+			console.log("- GET  /");
+			console.log("- GET  /api/courses");
+			console.log("- POST /api/login");
+			console.log("- POST /api/users");
+			console.log("- POST /api/courses");
 		});
 	} catch (error) {
 		console.error("Startup error:", error);

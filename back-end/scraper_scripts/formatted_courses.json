@@ -1029,6 +1029,20 @@
         "prerequisites": []
     },
     {
+        "course_id": "COMPSCI 590AD",
+        "name": "Artificial Intelligence Law and Policy",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 590AE",
+        "name": "Mobile and Wireless Networks",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
         "course_id": "COMPSCI 590AF",
         "name": "Reverse Engineering and Understanding Exploit Development",
         "description": null,
@@ -1064,6 +1078,50 @@
         "prerequisites": []
     },
     {
+        "course_id": "COMPSCI 590G",
+        "name": "Game Programming",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 590GC",
+        "name": "Three Dimensional Modeling and Simulation",
+        "description": "The course teaches students advanced algorithms and techniques for 3D geometric modeling, animation and physics-based simulation, which are all fundamental components of visual content creation software.",
+        "credits": 3.0,
+        "prerequisites": [
+            "CMPSCI 390CG"
+        ]
+    },
+    {
+        "course_id": "COMPSCI 590IV",
+        "name": "Intelligent Visual Computing",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 590J",
+        "name": "Cyber Effects: Reverse Engineering, Exploit Analysis, and Capability Development",
+        "description": "This course covers a broad range of topics related to cyber security and operations. Our focus is on  real world studies of reverse engineering, exploit analysis, and capability development within the context of computer network operations and attack. The course has an emphasis on hands-on exercises and projects. Topics covered include computer architecture and assembly language, principles of embedded security, the essentials of exploit development and analysis (including using industry standard tools such as Ghidra, and utilizing computer security databases such as CVE), and discussion of real-world events and techniques.  This course counts as a CS Elective toward the CS Major (BA or BS).",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 590K",
+        "name": "Advanced Digital Forensic Systems",
+        "description": "This course introduces students to the principal activities and state-of-the-art techniques involved in developing digital forensics systems. Topics covered may include: advanced file carving and reconstruction, forensic analysis of modern filesystems, network forensics, mobile device forensics, memory forensics, and anti-forensics.  This course counts as a CS Elective toward the CS major (BA or BS).",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 590L",
+        "name": "Making Predictions",
+        "description": "How can we make predictions? The traditional approach in computer science is machine learning. However, this question is addressed in many ways in different fields. One approach is to simply \"guess\", in which case cognitive biases are important. Another approach might be to identify people who are good at predicting. But do such people exist? And how can we combine their judgment. Economics suggests prediction markets, where people compete for financial reward. This course will cover many different methods for making predictions. The goal is to understand the strengths and weaknesses of each.",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
         "course_id": "COMPSCI 590M",
         "name": "Introduction to Simulation",
         "description": null,
@@ -1081,6 +1139,13 @@
         "course_id": "COMPSCI 590OP",
         "name": "Applied Numerical Optimization",
         "description": "This course provides an overview of numerical optimization methods and covers how to implement them in Python. We will discuss common algorithms ranging from gradient descent to stochastic methods, with applications ranging from image processing to neural networks.  This course counts as a CS Elective (BS or BA).",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 590Q",
+        "name": "Quantum Information Systems",
+        "description": "Fundamentals of quantum information systems, including quantum computation and quantum cryptography. Topics include: quantum circuit model, qubits, unitary operators, measurement, entanglement, quantum algorithms for factoring and search, quantum key distribution, error-correction and fault-tolerance, complexity of quantum computation. This course counts as a CS Elective for the CS Major (BA or BS).",
         "credits": 3.0,
         "prerequisites": []
     },
@@ -1148,6 +1213,13 @@
         "prerequisites": []
     },
     {
+        "course_id": "COMPSCI 591L",
+        "name": "S-Computer Crime Law: Technologies of Investigation and Privacy",
+        "description": "A study, analysis, and discussion of the legal issues related to crimes involving computers and networks, including topical actions by dissidents and governments. We will also study the technologies of forensic investigation, intelligence gathering, privacy enhancement, and censorship resistance. Our main legal topics will include recent and important case law, statutes, and constitutional clauses concerning authorization, access, search and seizure, wiretaps, the right to privacy, and FISA. Our technology topics will include methods of investigation and resistance in the context of the Internet and Cellular networks. Students are assumed to have no background in legal concepts. Students will be required to complete substantial legal readings, complete significant written analysis of rulings, learn about technologies in detail, and participate in lively class discussion.",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
         "course_id": "COMPSCI 591M",
         "name": "Seminar- Bioinformatics and Computational Biology",
         "description": "This seminar will be a combination of hands-on projects and seminar paper reviews.  We will discuss how to manipulate most -omics datasets and review papers relevant to the fields of bioinformatics and computational biology.  This course may count as an Outside Elective for the BS-CS.",
@@ -1173,6 +1245,64 @@
         "name": "Independent Study",
         "description": null,
         "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 596E",
+        "name": "Indepedent Study- Machine Learning Applied to Child Rescue",
+        "description": "Students will work collaboratively to construct production-grade software used to advance the goal of Child Rescue.",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 597A",
+        "name": "Special Topics- Agile Software Project Management",
+        "description": "Students will lead a software development team, in the context of a web development startup seeking venture capital funding, to the successful completion and deployment of a real web application. This course emphasizes agile software engineering principles and practice such as scrum, sprints, iterative design and development, test driven development, and shippable increments.  Students enrolled in this course will be assigned a team of approximately 5-7 students enrolled in COMPSCI 326 and will be required to hold team meetings, manage work and design of a unique product, evaluate the individual work and contributions of their team, handle team conflicts and communication, and report weekly on the progress of their startup and its product development. Students enrolled in this course will meet with the instructor to report on their team and discuss agile software development techniques and practice from the literature. Students will also be responsible for organizing and attending weekly team meetings.  Counts as a CS Elective for the CS Major (BS/BA).",
+        "credits": 3.0,
+        "prerequisites": [
+            "COMPSCI 326"
+        ]
+    },
+    {
+        "course_id": "COMPSCI 597CR",
+        "name": "Special Topics- Crypto Engineering",
+        "description": "Cryptographic algorithms are the \"engine\" that drives virtually every security solution, from email encryption to biometric passports. This course will start with a review of the most important symmetric and public-key crypto algorithms. The focus on the course will then be on (1) the efficient implementation and (2) the secure implementation of cryptographic algorithms. Both pose considerable challenges. We will treat topics such as efficient arithmetic with very long numbers and side-channel attacks. Most of the methods that will be introduced were developed in the 1990s and are used in many real-world applications.",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 597N",
+        "name": "Special Topics - Introduction to Computer and Network Security",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 601",
+        "name": "Computation Theory",
+        "description": "An in-depth introduction to the main models and concepts of the mathematical theory of computation, including computability, complexity, and logic. Prerequisites: an undergraduate course in automata theory and formal languages such as COMPSCI 501 or permission of instructor.",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 602",
+        "name": "Research Methods in Empirical Computer Science",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 603",
+        "name": "Robotics",
+        "description": "This course is intended to serve as an advanced overview of robotics spanning the complete autonomy loop: perception, planning, and control. We will study the theory, algorithms, and efficient implementations related to these topics, with focus on open discussions for how to do research to go beyond the state of the art.  Students will gain hands-on experience in implementing, and extending such algorithms using simulations.",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 610",
+        "name": "Compiler Techniques",
+        "description": "Basic problems in the translation of programming languages focusing on theory and common implementation techniques for compiling traditional (Pascal-like) programming languages to produce assembly or object code for typical machines. Involves a substantial laboratory project in which the student constructs a working compiler for a considerable subset of a realistic programming language within a provided skeleton.  Lectures augmented by a discussion section covering details of the programming language to be used in the project (Java), the operating system (Unix), the source language (a Pascal subset) and various tools (javacup, make, etc.). Use of computer required.",
+        "credits": 3.0,
         "prerequisites": []
     },
     {
@@ -1220,6 +1350,13 @@
         "prerequisites": []
     },
     {
+        "course_id": "COMPSCI 627",
+        "name": "Fixing Social Media",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
         "course_id": "COMPSCI 630",
         "name": "Systems",
         "description": "This class is an in-depth introduction to systems, focusing on principles of system design that cross-cut numerous systems artifacts, including operating systems, databases, runtime systems, and architecture. We will cover all levels of the \"system stack\", from chips to distributed systems.  This course may be used to satisfy systems core requirements.",
@@ -1252,6 +1389,13 @@
         "name": "Information Retrieval",
         "description": "Basic and advanced techniques for text-based information systems, including retrieval models, indexing and text representation, browsing and query formulation, data-intensive computing approaches, evaluation, and issues surrounding implementation. The course will include a substantial project such as implementation of major elements of search engines and applications.",
         "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 648",
+        "name": "Quantum Information Systems",
+        "description": null,
+        "credits": "",
         "prerequisites": []
     },
     {
@@ -1544,6 +1688,27 @@
         "prerequisites": []
     },
     {
+        "course_id": "COMPSCI 690U",
+        "name": "Computational Biology and Bioinformatics",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 690W",
+        "name": "Advanced Wireless Networking and Sensing in IoT",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 691BR",
+        "name": "Seminar - Building a Robot Soccer Team",
+        "description": "Robot soccer has been adopted as a test bed and progress marker for Artificial Intelligence and Robotics research since 1996. The primary success of soccer as a test bed is that the high-level evaluation of a successful team is readily understandable to everyone: the team that scores more goals, and \"plays better soccer,\" is likely the team with the most effective innovations. The goal of this seminar is to explore the different sub-problems of AI and robotics as applied to robot soccer, to survey the state of the art, and to implement the most promising approach from each sub-problem.",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
         "course_id": "COMPSCI 691DD",
         "name": "S-Research Methods in Empirical Computer Science",
         "description": "This course introduces graduate and undergraduate students to concepts, practices, and tools for conducting effective research. Students will learn basic methods for activities such as reading technical papers, selecting research topics, devising research questions, planning research, analyzing experimental results, modeling and simulation of computational phenomena, and synthesizing broader theories. The course is structured around three activities: lectures on basic concepts of research strategy and techniques, discussions of technical papers, and preparation and review of written assignments. Significant reading, reviewing, and writing is required.  Students are expected to participate actively in class discussions and to provide meaningful comments on the work of other students. For PhD students, this course helps accelerate their current and future research. For MS students, this course provides a grounding in research methods that will aid entry into research-oriented industrial positions and provide information about continuing to PhD studies. For undergraduates considering graduate studies, this course will help inform and accelerate that direction. This course can be used to satisfy the 499Y requirement for Departmental and Multidisciplinary Honors students whose theses or projects have a substantial empirical component. Approval of the Computer Science Honors Program Director is required prior to registering.",
@@ -1561,6 +1726,13 @@
         "course_id": "COMPSCI 691M",
         "name": "Seminar - Adversarial Machine Learning",
         "description": "Adversarial machine learning is the study of the attacks that systematically alter the inferences produced learned models. ML systems are increasingly foundational for large technological systems such as social media, news recommendation, fraud detection, autonomous vehicles, and systems security. In this course, we will read and discuss central papers from a variety of machine learning and security conferences and journals.",
+        "credits": 1.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 691NN",
+        "name": "S-Hot Topics in Programming Languages and Systems",
+        "description": "This graduate seminar course will cover recent developments in programming languages and systems, examining the latest research papers from top programming languages and systems conferences. Topics of interest include bug detection and correction, domain-specific languages, and emerging topics like concurrency on multicore architectures.",
         "credits": 1.0,
         "prerequisites": []
     },
@@ -1593,10 +1765,61 @@
         "prerequisites": []
     },
     {
+        "course_id": "COMPSCI 691RS",
+        "name": "Seminar - Introduction to Recommender Systems",
+        "description": "Recommender Systems (RS) are key technical components in many online applications, such as product recommendation, video recommendation, or stream recommendation in social networks. In this course, we cover the applications and technical details of recommender systems, including: 1) Historical overview 2) Major recommendation frameworks, including content-based, collaborative filtering, and hybrid recommender systems; 3) Current techniques for recommendation, including matrix factorization, frequent pattern mining, sentiment analysis, deep learning, and economic models; 4) Analysis of recommendation applications. From this course, students will develop an understanding of the research issues, technical basis, and practical applications of personalized recommender systems.",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 691WM",
+        "name": "Seminar- Wearable and Mobile Sensors in Clinical Sciences",
+        "description": "The health care systems of many industrialized nations, including the US, are facing daunting challenges such as a clear trend towards an aging of the population. This large elderly population having complex health conditions is beginning to severely stress the Medicare system. Researchers, health service providers and government leaders are seeking technological solutions to this problem in order to expand the capabilities of the healthcare system. In this seminar, we will discuss the current state-of-the-art and emerging on- and off-body sensors and mobile technologies, and their applications in clinical sciences. Various topics will be covered, including 1) different types of body sensors and mobile technologies that are motivated by practical medical needs, 2) construction of appropriate clinical trials using technological outcome measures, 3) analysis of the obtained data to quantify patients' conditions, and 4) validating the system's clinical efficacy.",
+        "credits": 1.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 692A",
+        "name": "Seminar- Automated Knowledge Base Construction",
+        "description": "Knowledge gathering, representation, and reasoning are among the fundamental challenges of artificial intelligence. Large-scale repositories of knowledge about entities, relations, and their abstractions are known as \"knowledge bases.\" Most major technology companies now have substantial efforts in knowledge base construction, and related scholarly work spans many research areas, including machine learning, deep learning, natural language processing, information integration, databases, search, data mining, knowledge representation, human computation, human-computer interfaces, and fairness. Recently there has been a surge of interest combined neural and symbolic representations that support queries and reasoning.  In this course, we will study topics related to knowledge base construction and use, including entity recognition, entity resolution, relation extraction, embedded representations for knowledge, data structures for knowledge indexing, reasoning, semantic parsing, and question answering. There will be special focus on recent research in all of these areas.",
+        "credits": 3.0,
+        "prerequisites": [
+            "COMPSCI 585"
+        ]
+    },
+    {
+        "course_id": "COMPSCI 692B",
+        "name": "Seminar- Online Learning and Inference for Distributed Systems",
+        "description": "In this seminar, students will read, present, and discuss research papers on recent and advanced topics in online optimization and learning and their applications to distributed systems. Students are expected to lead one or more discussions throughout the semester. This seminar covers recent research ranging from online algorithms, online learning in full and bandit feedback settings, to distributed estimation and inference, and their applications in distributed systems. Participants will be expected to read up to two papers per week. One or more attendees will be responsible for presenting a summary of each paper and help lead the discussion of the paper. When possible, researchers will be asked to relate their work to the papers.",
+        "credits": 1.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 692C",
+        "name": "Seminar- Equitable and Explainable Artificial Intelligence",
+        "description": "This seminar will focus on recent research into equitable and transparent algorithms and systems. We will review cutting-edge research that supports the properties of fairness, accountability, and transparency across various research areas, in particular fair machine learning, explainable artificial intelligence, and their interdisciplinary underpinnings. The seminar will offer introductory lectures describing the origins of relevant research problems, highlighting major threads and approaches in this vivid research space, and describing the relations between them. The course will primarily involve reading and discussing papers and book chapters.",
+        "credits": 1.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 692D",
+        "name": "Seminar- Machine Learning and Data Analysis for Networked Systems",
+        "description": "This seminar will explore machine learning and data analytic techniques for the purpose of designing network mechanisms such as cache management algorithms and for exploring and analyzing network data such as traffic traces.",
+        "credits": 1.0,
+        "prerequisites": []
+    },
+    {
         "course_id": "COMPSCI 692E",
         "name": "Seminar - Equitable Algorithms and Systems",
         "description": "This seminar will focus on recent research into equitable algorithms and systems, broadly construed.  This includes research that supports properties of fairness, accountability, and transparency, as well as respect for the privacy, safety, and equitable treatment of contributing individuals.  Specific research topics will span systems, artificial intelligence, and theory.",
         "credits": 1.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 692EF",
+        "name": "Seminar- Embedded Models for IoT and Health",
+        "description": null,
+        "credits": "",
         "prerequisites": []
     },
     {
@@ -1674,6 +1897,13 @@
         ]
     },
     {
+        "course_id": "COMPSCI 692R",
+        "name": "Seminar - Machine Learning in the Real World: Case Studies",
+        "description": "The course will explore several areas of applications including: aircraft maintenance, semiconductor chip manufacturing, hospice data, spectroscopy data, genomic signal processing, among others. The requirements for the class are skill in Python scripting, Python coding,  machine learning, hyper-paramater tuning. The course will have at least three projects; and some guest speakers.",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
         "course_id": "COMPSCI 692S",
         "name": "Seminar- Systems for Machine Learning, Machine Learning for Systems",
         "description": "Over the last few years, a wave of excitement about machine learning (ML) and deep learning has proliferated from academia to industry, transforming prototypes in research labs to valid solutions to real-world problems. Using ML entails developing end-to-end pipelines to collect data, clean it, and run learning and inference algorithms in a scalable manner. This results in computationally intense workloads and complex software pipelines. Systems for ML help users organize their data and scale these computationally intense problems to larger and larger datasets.  At the same time, ML is having an increasing impact on systems design. Fine-tuned analytical heuristics and cost models are being replaced by learned models, following trends observed in other fields.  This seminar will review cutting-edge research on these topics and allow students to work on a hands-on project. It will focus on reading, presenting, and discussing recent papers in the domains of ML for systems and systems for ML (1 credit) and a final project focusing on a specific ML system topic (3 credits).",
@@ -1730,10 +1960,52 @@
         "prerequisites": []
     },
     {
+        "course_id": "COMPSCI 696C",
+        "name": "Independent Study- Chaos in Computer Performance",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
         "course_id": "COMPSCI 696F",
         "name": "Independent Study- Information Integration and Data Poplulation for OpenReview",
         "description": "Analyze the information richness of large scale scientific datasets, run entity resolution on entities within datasets. Extract relevant information from research PDFs from datasets. Evaluate coverage and accuracy of data sets with respects to the CS scientific community.",
         "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 696M",
+        "name": "Independent Study - Detection and Recognition of Text in Maps",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 697D",
+        "name": "Special Topics - Distributed Systems and Networks",
+        "description": null,
+        "credits": 1.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 697M",
+        "name": "Special Topics- Fixing Social Media",
+        "description": "This course examines sociotechnical problems with existing modes of social media and works towards building new, affirmative visions for social media through technical and policy means. Students will examine interventions to address problems with contemporary social media and design and develop possible interventions.",
+        "credits": 3.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 697W",
+        "name": "Special Topics - Wearable and Mobile Sensor Computing",
+        "description": "The ubiquity of sensor-equipped smartphones and wearables has led to increased interest in leveraging these signals for mobile healthcare, wearability and interaction, entertainment, and other applications. This seminar will explore research issues in sensor computing including: a) inference of human activity, gestures, cognitive state, health state, and physiological markers, by leveraging sensor signals from wearable devices, mobile phones, radio-frequency devices, and other sources, b) computational pipelines for extracting features and analyzing data from a variety of sensors (e.g. accelerometer, gyroscope, microphone, camera, radio, etc), and c) end-to-end systems design from physical layer to end applications.",
+        "credits": 1.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 698W",
+        "name": "P- CS Research Writing Practicum",
+        "description": "This CS research writing class uses a workshop format to focus on structure and phrasing while engaging students in a process-based approach to writing. Instruction will emphasize genre and discourse analysis and engage students in activities to strengthen audience awareness. As such, students will analyze representative examples of computer science research writing for stylistic and argumentative conventions and then integrate the awareness of these conventions and \"moves\" into their own writing. Students will produce or substantially revise a complete piece of writing.",
+        "credits": 1.0,
         "prerequisites": []
     },
     {
@@ -1804,8 +2076,68 @@
         "prerequisites": []
     },
     {
+        "course_id": "COMPSCI 890T",
+        "name": "Teaching Assistants as Tomorrow's Faculty",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 891M",
+        "name": "S-Theory of Computation",
+        "description": "The theory seminar is a weekly meeting in which topics of interest in the theory of computation - broadly construed - are presented.  This is sometimes new research by visitors or local people.  It is sometimes work in progress, and it is sometimes recent material of others that some of us present in order to learn and share.  This is a one-credit seminar which may be taken repeatedly for credit. May be repeated for credit up to six times.",
+        "credits": 1.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI 899",
+        "name": "Ph D Dissertation",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI H220",
+        "name": "Honors Colloquium for Programming Methodology",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
         "course_id": "COMPSCI H311",
         "name": "Honors Colloquium for Introduction to Algorithms",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI H326",
+        "name": "Honors Colloquium for Web Programming",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI H345",
+        "name": "Honors Colloquium for Practice and Applications of Data Management",
+        "description": "Data is a core part of most modern applications. This honors course will focus on student-driven, in-depth study of fundamental topics in data management. Topics will include: remote access and security of online database systems, design and implementation of full-scale database-driven systems, and societal issues associated with data, such as ethics and fairness in a Big Data era.",
+        "credits": 1.0,
+        "prerequisites": [
+            "COMPSCI 187",
+            "INFO 248",
+            "COMPSCI 186"
+        ]
+    },
+    {
+        "course_id": "COMPSCI H377",
+        "name": "Honors Colloquium for Operating Systems",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI H383",
+        "name": "Honors Colloquium for Artificial Intelligence",
         "description": null,
         "credits": "",
         "prerequisites": []
@@ -1820,6 +2152,41 @@
     {
         "course_id": "COMPSCI H403",
         "name": "Honors Colloquium for Introduction to Robotics: Perception, Mechanics, Dynamics & Control",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI H453",
+        "name": "Honors Colloquium for Computer Networks",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI H589",
+        "name": "Honors Colloquium for Machine Learning",
+        "description": "This colloquium will complement the material in COMPSCI 589 by covering foundational and recent research papers from the machine learning literature. Students will participate in and lead group discussions of papers, and will also write reading responses.",
+        "credits": 1.0,
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI HI121",
+        "name": "Honors Independent Study for Introduction to Problem Solving with Computers",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI HI220",
+        "name": "Honors Independent Study for Programming Methodology",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI HI305",
+        "name": "Honors Independent Study for Social Issues in Computing",
         "description": null,
         "credits": "",
         "prerequisites": []
@@ -1897,6 +2264,13 @@
     {
         "course_id": "COMPSCI HI491P",
         "name": "Honors Independent Study for Seminar- Programming the iPhone and iPad",
+        "description": null,
+        "credits": "",
+        "prerequisites": []
+    },
+    {
+        "course_id": "COMPSCI HI529",
+        "name": "Honors Independent Study for Software Engineering Project Management",
         "description": null,
         "credits": "",
         "prerequisites": []

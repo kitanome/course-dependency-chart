@@ -81,7 +81,7 @@ def main():
             reformatted_courses.append(formatted_course)
 
             # Delay so we dont get ratelimited
-            time.sleep(0.8)
+            time.sleep(1.5)
 
         except Exception as e:
             print(f"Error processing {course_url}: {e}")

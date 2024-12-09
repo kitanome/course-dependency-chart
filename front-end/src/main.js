@@ -77,17 +77,15 @@ document.addEventListener("DOMContentLoaded", () => {
 import { AppControllerComponent } from "./components/AppControllerComponent/AppControllerComponent.js";
 import { SidebarComponent } from "./components/SidebarComponent/SidebarComponent.js";
 
-const appController = new AppControllerComponent();
-const appContainer = document.getElementById("app");
+const app = document.getElementById("app");
 
-// Initialize sidebar
+const filter = new FilterComponent();
+const graph = new GraphComponent();
 const sidebar = new SidebarComponent();
 
-/*
-Render components.
-*/
-appContainer.appendChild(appController.render());
-document.body.appendChild(sidebar.render());
+app.appendChild(filter.render());
+app.appendChild(graph.render());
+graph.generateGraph();
 
 /* obtains the classList as a list of Objects.
 * each class has the object format:

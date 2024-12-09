@@ -24,37 +24,26 @@ app.get("/", (req, res) => {
 
 async function main() {
 	try {
-		await sequelize.sync({ force: true });
-		console.log("Database synced!");
+    await sequelize.sync();
+    console.log("Database synced!");
 
-		// Create test data
-		const user = await User.create({
-			username: "test",
-			password: "123",
-		});
-		console.log("Test user created:", user.toJSON());
+    // Create test user
+    // const user = await User.create({
+    //   username: "test",
+    //   password: "123",
+    // });
+    // console.log("Test user created:", user.toJSON());
 
-		const course = await Course.create({
-			course_id: "CS101",
-			name: "Introduction to Computer Science",
-			description: "An introductory course to computer science.",
-			prerequisites: ["MATH101"],
-			corequisites: [],
-			credits: 3,
-			professors: ["prof123"],
-		});
-		console.log("Test course created:", course.toJSON());
-
-		app.listen(port, () => {
-			console.log(`Server running at http://localhost:${port}`);
-			console.log("Available routes:");
-			console.log("- GET  /");
-			console.log("- GET  /api/courses");
-			console.log("- POST /api/login");
-			console.log("- POST /api/users");
-			console.log("- POST /api/courses");
-		});
-	} catch (error) {
+    app.listen(port, () => {
+      console.log(`Server running at http://localhost:${port}`);
+      console.log("Available routes:");
+      console.log("- GET  /");
+      console.log("- GET  /api/courses");
+      console.log("- POST /api/login");
+      console.log("- POST /api/users");
+      console.log("- POST /api/courses");
+    });
+  } catch (error) {
 		console.error("Startup error:", error);
 		process.exit(1);
 	}

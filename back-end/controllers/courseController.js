@@ -4,7 +4,7 @@ export const getAllCourses = async (req, res) => {
 	try {
 		const courses = await Course.findAll();
 		console.log("Courses fetched:", courses.length);
-		res.json(courses);
+		res.status(200).json(courses);
 	} catch (error) {
 		console.error("Error fetching courses:", error);
 		res.status(500).json({ error: "Failed to fetch courses" });

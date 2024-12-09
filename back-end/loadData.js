@@ -1,28 +1,24 @@
+import fs from "fs";
+import path from "path";
 import sequelize from "./database.js";
 import Course from "./models/CourseModel.js";
-import { fileURLToPath, pathToFileURL } from "url";
 
 async function loadData() {
   try {
-    // Sync database (creates the Course table if it doesn't exist)
-    await sequelize.sync({ force: true }); // WARNING: force: true drops existing tables
+    // Sync the database
+    await sequelize.sync({ force: true });
     console.log("Database synced.");
 
-    // Convert relative path to file URL
-    const filePath = pathToFileURL(
+    // Use `fs` to read the JSON file
+    const filePath = path.resolve(
       "./scraper_scripts/uptodate_courses_s25_only.json"
     );
-
-    // Fetch JSON data
-    const response = await fetch(filePath);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch JSON file: ${response.statusText}`);
-    }
-    const courses = await response.json();
-    console.log("Data fetched and parsed.");
+    const jsonData = fs.readFileSync(filePath, "utf-8"); // Read file content
+    const courses = JSON.parse(jsonData); // Parse JSON into JavaScript array
+    console.log(courses);
 
     // Insert data into the Course table
-    await Course.bulkCreate(courses);
+    await Course.bulkCreate(courses, { validate: true });
     console.log("Data loaded successfully!");
   } catch (error) {
     console.error("Error loading data:", error);

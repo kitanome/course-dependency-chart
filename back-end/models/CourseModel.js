@@ -15,18 +15,18 @@ const Course = sequelize.define("Course", {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  prerequisites: {
-    type: DataTypes.JSON, // empty array or JSON array
-    allowNull: true,
-  },
-  corequisites: {
-    type: DataTypes.JSON,
-    allowNull: true,
-  },
   credits: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  prerequisites: {
+    type: DataTypes.JSON, // empty array or JSON array
+    allowNull: true,
+  },
+  // corequisites: {
+  //   type: DataTypes.JSON, // empty array or JSON array
+  //   allowNull: true,
+  // },
   instructors: {
     type: DataTypes.JSON, // null or long string with comma separated names
     allowNull: true,

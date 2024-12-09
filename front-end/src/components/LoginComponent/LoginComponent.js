@@ -1,11 +1,15 @@
-export class LoginComponent {
+import { BaseComponent } from "../BaseComponent/BaseComponent.js";
+
+export class LoginComponent extends BaseComponent{
 	constructor() {
+		super();
 		this.loginButton = document.getElementById("login-button");
 		this.usernameInput = document.getElementById("username-input");
 		this.passwordInput = document.getElementById("password-input");
 		this.loginContainer = document.getElementById("login-container");
 
 		this.init();
+		this.loadCSS('LoginComponent');
 	}
 
 	init() {

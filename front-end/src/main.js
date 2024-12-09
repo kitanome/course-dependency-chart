@@ -20,3 +20,6 @@ app.appendChild(filter.render());
 // ERROR: Double graph render
 app.appendChild(graph.render());
 graph.generateGraph();
+
+app.appendChild(sidebar.render());
+

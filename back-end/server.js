@@ -1,18 +1,43 @@
 import express from "express";
-import sequelize from "./database.js";
+import {sequelize} from "./database.js";
+import session from "express-session";
+import SequelizeStore from "connect-session-sequelize";
 import cors from "cors";
 import courseRoutes from "./routes/courseRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import User from "./model/UserModel.js";
 import Course from "./model/CourseModel.js";
+import { Sequelize } from "sequelize";
+import passport from "./auth/passport.js";
+import bcrypt from "bcryptjs";
 
 const app = express();
 const port = 3000;
 
+//Configure static files
+app.use(express.static("front-end/src"));
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
+//Configure session management.
+//This is required to persist login session across requests
+//Session data is current stored in memory by default, but we could store
+//it in a database or a cache for better scalability
+
+app.use(
+	session({
+		secret: process.env.SESSION_SECRET,
+		resave: false,
+		saveUninitialized: false,
+	})
+);
+
+//Initialize Passport and restore auth state from session.
+//This allows you to keep a user's authentication state across requests
+app.use(passport.initialize());
+app.use(passport.session());
 // Routes
 app.use("/api", courseRoutes);
 app.use("/api", userRoutes);
@@ -22,15 +47,19 @@ app.get("/", (req, res) => {
 	res.send("Hello World!");
 });
 
+//Use routes from routes.js
+// app.use("/",routes);
+
 async function main() {
 	try {
 		await sequelize.sync({ force: true });
 		console.log("Database synced!");
+		const password = await bcrypt.hash("123",10);
 
 		// Create test data
 		const user = await User.create({
 			username: "test",
-			password: "123",
+			password: password,
 		});
 		console.log("Test user created:", user.toJSON());
 

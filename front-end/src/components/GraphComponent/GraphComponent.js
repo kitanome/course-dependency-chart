@@ -5,9 +5,8 @@ export class GraphComponent extends BaseComponent{
     #container = null;
     #graph = null;
 
-    constructor(graphData = {}) {
+    constructor() {
         super();
-        this.graphData = graphData;
         this.loadCSS('GraphComponent');
     }
     

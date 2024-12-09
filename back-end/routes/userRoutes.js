@@ -16,4 +16,8 @@ router.post("/login", login);
 // Create new user
 router.post("/users", createUser);
 
+//Protected route
+//Auth checking route: If the user is authenticated, stop showing the login screen
+router.post("/profile",isAuthenticated,getProfile)
+
 export default router;

@@ -1,5 +1,10 @@
 console.log("main.js is loading");
 
+import { AppControllerComponent } from "./components/AppControllerComponent/AppControllerComponent.js";
+import { SidebarComponent } from "./components/SidebarComponent/SidebarComponent.js";
+import { FilterComponent } from "./components/FilterComponent/FilterComponent.js";
+import { GraphComponent } from "./components/GraphComponent/GraphComponent.js";
+
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
 	console.log("DOM Content Loaded");

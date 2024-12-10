@@ -31,8 +31,11 @@ export class FilterComponent extends BaseComponent {
   #getTemplate() {
     // Returns the HTML template for the component
     return `
-      <input type="text" id="filterInput" placeholder="Add filter">
-      <button id="filterBtn">Filter</button>
+    <div class="navbar">
+    <input type="text" id="filterInput" placeholder="Add filter">
+    <button id="filterBtn">Filter</button>
+    </div>
+      
     `;
   }
 

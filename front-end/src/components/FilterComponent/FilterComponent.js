@@ -51,10 +51,10 @@ export class FilterComponent extends BaseComponent {
 
     filterBtn.addEventListener("click", () => this.#handleFilter(filterInput));
     this.#loginButton.addEventListener("click", this.#handleLogin.bind(this));
-    this.#listenToEvent('handleLogin',(data)=>{
-      const {message} = data;
+    this.#listenToEvent('handleLogin',(username)=>{
+      // const message = username;
       this.#loginButton.innerHTML = "Logout";
-      msg.innerText = message;
+      msg.innerText = `Welcome, ${username}`;
       }
     );
     this.#listenToEvent('handleLogout',(event)=>{
@@ -90,6 +90,7 @@ export class FilterComponent extends BaseComponent {
         throw new Error(`HTTP Error: ${response.status}`);
       }
       this.#publishNewTask('handleRoute','app');
+      localStorage.removeItem('user');
 
     } catch (error) {
 			console.error("Error logging out:",error);

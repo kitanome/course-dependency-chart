@@ -25,29 +25,20 @@ export class CommentComponent extends BaseComponent {
       // Don't submit empty comments
       return;
     }
-
     // Submit the comment to the server
-    const response = await fetch(`/api/courses/${this.sanitizedId}/comments`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ text: commentText }),
-    });
-    // Submit the comment to the server
-    const response = await fetch(
+    const res = await fetch(
       `http://localhost:3000/api/courses/${this.sanitizedId}/comments`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ content: commentText }),
+        body: JSON.stringify({ content: commentText, author: localStorage.getItem('user')}),
       }
     );
 
-    if (response.ok) {
-      const newComment = await response.json();
+    if (res.ok) {
+      const newComment = await res.json();
       this.comments.push(newComment);
       this.renderComments();
     }
@@ -58,7 +49,7 @@ export class CommentComponent extends BaseComponent {
     commentsList.innerHTML = "";
     this.comments.forEach((comment) => {
       const commentItem = document.createElement("li");
-      commentItem.textContent = comment.content;
+      commentItem.textContent = `${comment.content} - ${comment.author}`;
       commentsList.appendChild(commentItem);
     });
   }

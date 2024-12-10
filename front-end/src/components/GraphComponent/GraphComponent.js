@@ -192,7 +192,7 @@ export class GraphComponent extends BaseComponent {
     // Render the graph into the SVG
     render(inner, this.#graph);
 
-    //Style the edges
+    //Style the edges to be more transparent and not clogging up the page
     inner
       .selectAll(".edgePath path")
       .style("stroke", "rgba(0, 0, 0, 0.1)") // Adjust the RGBA value to control transparency
@@ -209,11 +209,10 @@ export class GraphComponent extends BaseComponent {
       .attr("height", this.#graph.graph().height + 2 * yCenterOffset)
       .attr("width", this.#graph.graph().width + 2 * xCenterOffset);
 
-    // Scroll to the center of the graph
+    // Scroll to the center of the graph to display the CS110 course when page loads
     const graphContainer = document.getElementById("graph-component");
     graphContainer.scrollTo({
       left: (graphContainer.scrollWidth - graphContainer.clientWidth) / 2,
-      behavior: "smooth",
     });
 
 

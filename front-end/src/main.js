@@ -30,10 +30,5 @@ import { LoginComponent } from "./components/LoginComponent/LoginComponent.js";
 // app.appendChild(sidebar.render());
 
 const app = new AppControllerComponent();
-const data = await app.checkAuth();
-try {
-    document.body.appendChild(app.render(data));
-} catch (error){
-	throw new Error(error);
-}
-
+document.body.appendChild(app.render());
+app.checkAuth();

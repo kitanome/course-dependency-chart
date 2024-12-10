@@ -1,10 +1,10 @@
 .navbar {
+    background-color: rgb(189, 188, 188);
+    font-size: small;
     display: flex;
     gap: 10px;
     align-items: center;
-    background-color: #881c1c;
     padding: 10px 20px;
-    color: white;
     position: fixed;
     top: 0;
     left: 0;
@@ -15,53 +15,55 @@
 
 .navbar input[type=text] {
   display:flex;
-  width: 10%;
+  width: 15%;
+  height: 30px;
+  border-radius: 5px;
   padding: 10px 20px;
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  background-color: #881c1c;
-  color: white;
-  font-size:30px;
+  color: rgb(0, 0, 0);
+  font-size:20px;
   text-decoration: underline;
 
 }
 
 .navbar input[type=text]:hover {
 
-  color: rgb(189, 188, 188);
+  color: rgb(0, 0, 0);
 
 }
 
 .navbar button{
   background-color:white;
-  color: #881c1c;
   display:flex;
   float:left;
   padding: 10px 20px;
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  font-size:30px;
+  font-size:20px;
+  border-radius: 5px;
 }
 
 .navbar button:hover{
   background-color:rgb(189, 188, 188);
+  color: black;
 }
 
 .navbar #loginBtn{
-  background-color:#881c1c;
-  color:white;
   float:right;
   padding: 10px 20px;
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  font-size:30px;
+  font-size:20px;
+  border-radius: 5px;
 }
 
 .navbar #loginBtn:hover{
   color:rgb(189, 188, 188);
+  color: black;
 }
 
 .navbar #message{

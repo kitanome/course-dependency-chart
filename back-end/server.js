@@ -44,15 +44,6 @@ async function main() {
     await sequelize.sync();
     console.log("Database synced!");
 
-    // Create test user
-    // const user = await User.create({
-    //   username: "test",
-    //   password: "123",
-    // });
-    // console.log("Test user created:", user.toJSON());
-
-		// Create test data
-
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);
       console.log("Available routes:");

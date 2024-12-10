@@ -1,4 +1,5 @@
 export const Events = {
   Filter: "Filter",
-  selectCourse: 'selectCourse'
+  selectCourse: 'selectCourse',
+  handleRoute: 'handleRoute',
 };

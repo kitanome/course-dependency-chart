@@ -4,6 +4,7 @@ import {
   createCourse,
   fetchComments,
   createComment,
+	clearComments,
 } from "../controllers/courseController.js";
 
 const router = express.Router();
@@ -20,5 +21,7 @@ router.get("/courses/:id/comments", fetchComments);
 
 // Create new comment for a course
 router.post("/courses/:id/comments", createComment);
+
+router.delete("/courses/:id/comments", clearComments);
 
 export default router;

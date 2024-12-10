@@ -1,15 +1,12 @@
 import User from "../models/UserModel.js";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
-import { EventHub } from "../../front-end/src/eventhub/EventHub.js";
 
 
 const existUser = async(username) => {
 	const user = await User.findOne({where: {username}});
 	return user;
 }
-
-let hub = EventHub.getInstance();
 
 export const createUser = async (req, res) => {
 	try {

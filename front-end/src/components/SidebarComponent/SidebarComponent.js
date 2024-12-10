@@ -1,7 +1,7 @@
 import { BaseComponent } from "../BaseComponent/BaseComponent.js";
 import { EventHub } from "../../eventhub/EventHub.js";
 import { Events } from "../../eventhub/Events.js";
-
+import { CommentComponent } from "../CommentComponent/CommentComponent.js";
 
 export class SidebarComponent extends BaseComponent {
   #container = null;
@@ -12,8 +12,7 @@ export class SidebarComponent extends BaseComponent {
     this.container = null;
   }
 
-
-   /**
+  /**
    * Creates and returns the sidebar DOM element
    * @returns {HTMLElement} The sidebar container element
    */
@@ -25,7 +24,7 @@ export class SidebarComponent extends BaseComponent {
     return this.#container;
   }
 
-  #createContainer(){
+  #createContainer() {
     this.#container = document.createElement("div");
     this.#container.id = "sidebar";
 
@@ -36,9 +35,9 @@ export class SidebarComponent extends BaseComponent {
       </div>
     `;
   }
-  #attachEventListeners(){
+  #attachEventListeners() {
     const hub = EventHub.getInstance();
-    hub.subscribe('courseSelect', course => this.#showCourseDetails(course));
+    hub.subscribe("courseSelect", (course) => this.#showCourseDetails(course));
   }
   /**
    * Updates the sidebar content with the provided course details.
@@ -47,18 +46,24 @@ export class SidebarComponent extends BaseComponent {
    */
   #showCourseDetails(course) {
     // Formats the prerequisites string
-    const prerequisites = course.prerequisites.length > 0 ? course.prerequisites.join(", ") : "None";
+    const prerequisites =
+      course.prerequisites.length > 0
+        ? course.prerequisites.join(", ")
+        : "None";
 
     // Updates the sidebar content with the course details
     this.#container.innerHTML = `
-      <h2>${course.name}</h2>
-      <p><strong>Course ID:</strong> ${course.course_id}</p>
-      <p><strong>Credits:</strong> ${course.credits}</p>
-      <p><strong>Prerequisites:</strong> ${prerequisites}</p>
-      <p><strong>Professors:</strong></p>
-      <ul>
-        ${course.instructors}
-      </ul>
+     <div class="course-details">
+        <h2>${course.name}</h2>
+        <p>${course.description}</p>
+        <p>Credits: ${course.credits}</p>
+        <p>Prerequisites: ${course.prerequisites.join(", ")}</p>
+        <p>Instructors: ${course.instructors}</p>
+      </div>
     `;
+
+    // Create and append the CommentsComponent
+    const commentComponent = new CommentComponent(course.course_id);
+    this.#container.appendChild(commentComponent.render());
   }
 }

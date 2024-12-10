@@ -111,6 +111,22 @@ export class GraphComponent extends BaseComponent {
     hub.publish(task, course);
   }
 
+  #wrapText(text, maxLength) {
+    let result = "";
+    let lineLength = 0;
+
+    text.split(" ").forEach((word) => {
+      if (lineLength + word.length + 1 > maxLength) {
+        result += "\n";
+        lineLength = 0;
+      }
+      result += (lineLength === 0 ? "" : " ") + word;
+      lineLength += word.length + 1;
+    });
+
+    return result;
+  }
+
   async generateGraph() {
     let classList = await this.#getClassData();
     const IDList = classList.map((course) => course.course_id);
@@ -127,12 +143,12 @@ export class GraphComponent extends BaseComponent {
 
     classList.forEach((e) => {
       if (uniqueIDList.has(e.course_id)) {
-        let name = e.course_id + "\n" + e.name;
+        let name = e.course_id + "\n" + this.#wrapText(e.name, 20);
 
         this.#graph.setNode(e.course_id, {
           label: name,
-          height: 80,
-          width: 200,
+          height: 90,
+          width: 120,
           style: "node node:hover",
           courseData: e,
         });
@@ -167,8 +183,8 @@ export class GraphComponent extends BaseComponent {
     // Render the graph into the SVG
     render(inner, this.#graph);
 
-    let xCenterOffset = (svg.attr("width") - this.#graph.graph().width) / 2;
-    inner.attr("transform", "translate(" + xCenterOffset + ", 20)");
+    let xCenterOffset = 200;
+    inner.attr("transform", "translate(" + xCenterOffset + ", 0)");
     svg
       .attr("height", this.#graph.graph().height + 40)
       .attr("width", this.#graph.graph().width + 1000);

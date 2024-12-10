@@ -22,4 +22,3 @@ app.appendChild(graph.render());
 graph.generateGraph();
 
 app.appendChild(sidebar.render());
-

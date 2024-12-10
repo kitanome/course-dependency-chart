@@ -2,6 +2,7 @@ import { BaseComponent } from "../BaseComponent/BaseComponent.js";
 import { EventHub } from "../../eventhub/EventHub.js";
 import { Events } from "../../eventhub/Events.js";
 import { CommentComponent } from "../CommentComponent/CommentComponent.js";
+import { SaveCourseComponent } from "../SaveCourseComponent/SaveCourseComponent.js";
 
 export class SidebarComponent extends BaseComponent {
   #container = null;
@@ -57,7 +58,6 @@ export class SidebarComponent extends BaseComponent {
     this.#container.innerHTML = `
      <div class="course-details">
         <h2>${course.name}</h2>
-        <button id="save-course-button">Save</button>
         <p>${course.description}</p>
         <p>Credits: ${course.credits}</p>
         <p>Prerequisites: ${course.prerequisites.join(", ")}</p>
@@ -67,6 +67,8 @@ export class SidebarComponent extends BaseComponent {
 
     // Create and append the CommentsComponent
     const commentComponent = new CommentComponent(course.course_id);
+    const saveCourseComponent = new SaveCourseComponent(course.course_id);
+    this.#container.appendChild(saveCourseComponent.render());
     this.#container.appendChild(commentComponent.render());
   }
 }

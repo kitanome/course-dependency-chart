@@ -1,0 +1,16 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  body {
+    margin: 0; /* Remove default body margin */
+    padding-top: 60px; /* Add padding to avoid content being hidden under the navbar */
+  }

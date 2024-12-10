@@ -20,11 +20,12 @@ export class CommentComponent extends BaseComponent {
   async submitComment(event) {
     event.preventDefault();
     const commentText = event.target.elements.comment.value;
-    if (!commentText) { // Don't submit empty comments
+    if (!commentText) {
+      // Don't submit empty comments
       return;
     }
 
-    // Submit the comment to the server 
+    // Submit the comment to the server
     const response = await fetch(`/api/courses/${this.sanitizedId}/comments`, {
       method: "POST",
       headers: {

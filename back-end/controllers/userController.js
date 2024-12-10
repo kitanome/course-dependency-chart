@@ -9,6 +9,8 @@ const existUser = async(username) => {
 	return user;
 }
 
+let hub = EventHub.getInstance();
+
 export const createUser = async (req, res) => {
 	try {
 		const {username, password} =  req.body;

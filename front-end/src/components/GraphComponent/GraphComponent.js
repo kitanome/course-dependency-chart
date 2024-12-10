@@ -167,11 +167,11 @@ export class GraphComponent extends BaseComponent {
     // Render the graph into the SVG
     render(inner, this.#graph);
 
-    let xCenterOffset = (svg.attr("width") - this.#graph.graph().width) / 2;
-    inner.attr("transform", "translate(" + xCenterOffset + ", 20)");
-    svg
-      .attr("height", this.#graph.graph().height + 40)
-      .attr("width", this.#graph.graph().width + 1000);
+    // let xCenterOffset = (svg.attr("width") - this.#graph.graph().width) / 2;
+    // inner.attr("transform", "translate(" + xCenterOffset + ", 20)");
+    // svg
+    //   .attr("height", this.#graph.graph().height + 1000)
+    //   .attr("width", this.#graph.graph().width + 40);
     this.#attachEventListeners();
   }
 }

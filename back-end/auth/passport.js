@@ -1,7 +1,7 @@
 import passport from "passport";
 import {Strategy as LocalStrategy} from "passport-local";
 import dotenv from "dotenv";
-import User from "../model/UserModel.js";
+import User from "../models/UserModel.js";
 //Load environment variables from .env file
 dotenv.config();
 

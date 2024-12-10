@@ -6,8 +6,7 @@ import {isAuthenticated} from "../auth/middleware.js";
 const router = express.Router();
 
 // Login route
-router.post("/login", renderLogin);
-router.post("/login/auth", login);
+router.post("/login", login);
 
 // Create new user
 router.post("/users", createUser);

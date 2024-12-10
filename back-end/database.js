@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize';
 
-export const sequelize = new Sequelize({
+const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: 'database.sqlite'
 });
@@ -17,3 +17,5 @@ export const sequelize = new Sequelize({
 // 	checkExpirationInterval: 15 * 60 * 1000, // The interval at which to cleanup expired sessions in milliseconds.
 // 	expiration: 24 * 60 * 60 * 1000  // The maximum age (in milliseconds) of a valid session.
 // })
+
+export default sequelize;

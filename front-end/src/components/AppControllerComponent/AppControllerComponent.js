@@ -50,6 +50,7 @@ export class AppControllerComponent{
   }
 
   #getLogin(){
+    this.#container.appendChild(this.#filter.render());
     this.#container.appendChild(this.#login.render());
   }
 

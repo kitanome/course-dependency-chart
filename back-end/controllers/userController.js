@@ -14,12 +14,17 @@ const existUser = async(username) => {
 export const createUser = async (req, res) => {
 	try {
 		const {username, password} =  req.body;
-		if (await existUser(userName)){
+		if (await existUser(req.body.username)){
 			return res.status(400).json(factoryResponse(400, "Username already taken"));
 		}
 		const hash = await bcrypt.hash(password,10);
 		await User.create({ username, password: hash});
-		res.json(factoryResponse(200, "Registration successful"));
+		const user = await User.findOne({ where: { username } });
+
+		req.login(user, (err) =>
+			err ? next(err) : res.json(factoryResponse(200, "Registration successful"))
+		);
+		
 	} catch (error) {
 		res.status(400).json({ error: error.message });
 	}

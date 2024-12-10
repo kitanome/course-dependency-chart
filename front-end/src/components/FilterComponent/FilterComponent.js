@@ -3,8 +3,9 @@ import { EventHub } from "../../eventhub/EventHub.js";
 
 export class FilterComponent extends BaseComponent {
   #container = null;
-  #hub = null;
-  #loginButton = null;
+  #hub = null; //Attribute for EventHub, used for obtaining eventHub instance
+  #loginButton = null; //Attribute for obtaining element for loginButton
+  #registerButton = null; // Attribute for obtaining element for registerButton
 
   constructor(filterData = {}) {
     super();
@@ -37,6 +38,7 @@ export class FilterComponent extends BaseComponent {
     <input type="text" id="filterInput" placeholder="Add filter...">
     <button id="filterBtn">Filter</button>
     <button id="loginBtn">Login</button>
+    <button id="registerBtn">Register</button>
     <h2 id="message">Currently not logged in</h2>
       
     `;
@@ -47,18 +49,22 @@ export class FilterComponent extends BaseComponent {
     const filterBtn = this.#container.querySelector("#filterBtn");
     const filterInput = this.#container.querySelector("#filterInput");
     this.#loginButton = this.#container.querySelector("#loginBtn");
+    this.#registerButton = this.#container.querySelector("#registerBtn");
     const msg = this.#container.querySelector("#message");
 
     filterBtn.addEventListener("click", () => this.#handleFilter(filterInput));
     this.#loginButton.addEventListener("click", this.#handleLogin.bind(this));
+    this.#registerButton.addEventListener("click",()=>this.#handleRegister());
     this.#listenToEvent('handleLogin',(username)=>{
       // const message = username;
       this.#loginButton.innerHTML = "Logout";
+      this.#registerButton.style.display = "none";
       msg.innerText = `Welcome, ${username}`;
       }
     );
     this.#listenToEvent('handleLogout',(event)=>{
       loginBtn.innerHTML = "Login";
+      this.#registerButton.style.display = "flex";
       msg.innerText = "Currently not logged in";
     })
   }
@@ -73,7 +79,8 @@ export class FilterComponent extends BaseComponent {
     this.#publishNewTask("filter", term);
   }
 
-  async #handleLogin(e){
+  //Async method for when Login/Logout button is clicked
+  async #handleLogin(){
     if (this.#loginButton.innerHTML === "Login")
     {
       this.#publishNewTask('handleRoute','login');
@@ -96,6 +103,11 @@ export class FilterComponent extends BaseComponent {
 			console.error("Error logging out:",error);
 			throw new Error("Error logging out:",error);
 		}
+  }
+
+  //Method for when register button is clicked
+  #handleRegister(){
+    this.#publishNewTask('handleRoute','register');
   }
 
   #publishNewTask(task, termInput) {

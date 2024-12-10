@@ -34,9 +34,6 @@ app.use(passport.session());
 // Routes
 app.use("/api", courseRoutes);
 app.use("/api", userRoutes);
-
-
-
 // Test route
 // app.get("/", (req, res) => {
 // 	res.send("Hello World!");

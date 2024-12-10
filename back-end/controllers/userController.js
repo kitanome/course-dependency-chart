@@ -38,7 +38,7 @@ export const login = async (req, res, next) => {
 		req.login(user, (err) =>
 			err ? next(err) : res.json(factoryResponse(200, "Login successful"))
 		);
-
+		
 	} catch (error) {
 		console.error("Login error:", error);
 		return res.status(500).json({ error: "Failed to login" });

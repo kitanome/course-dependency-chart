@@ -1,16 +1,74 @@
 .navbar {
     display: flex;
-    justify-content: space-between;
     gap: 10px;
     align-items: center;
-    background-color: white;
+    background-color: #881c1c;
     padding: 10px 20px;
     color: white;
     position: fixed;
     top: 0;
     left: 0;
-  }
-  body {
+    z-index: 99;
+    float:left;
+    width:100%;
+}
+
+.navbar input[type=text] {
+  display:flex;
+  width: 10%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #881c1c;
+  color: white;
+  font-size:30px;
+  text-decoration: underline;
+
+}
+
+.navbar input[type=text]:hover {
+
+  color: rgb(189, 188, 188);
+
+}
+
+.navbar button{
+  background-color:white;
+  color: #881c1c;
+  display:flex;
+  float:left;
+  padding: 10px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  font-size:30px;
+}
+
+.navbar button:hover{
+  background-color:rgb(189, 188, 188);
+}
+
+.navbar #loginBtn{
+  background-color:#881c1c;
+  color:white;
+  float:right;
+  padding: 10px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  font-size:30px;
+}
+
+.navbar #loginBtn:hover{
+  color:rgb(189, 188, 188);
+}
+
+.navbar #message{
+  font-family: Tahoma;
+  font-weight: 400;
+}
+body {
     margin: 0; /* Remove default body margin */
     padding-top: 60px; /* Add padding to avoid content being hidden under the navbar */
-  }
+}

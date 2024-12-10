@@ -1,3 +1,4 @@
+import { EventHub } from "../../eventhub/EventHub.js";
 import { BaseComponent } from "../BaseComponent/BaseComponent.js";
 
 export class LoginComponent extends BaseComponent{
@@ -6,8 +7,10 @@ export class LoginComponent extends BaseComponent{
 	#passwordInput = null;
 	#loginContainer = null;
 	#loggedIn = false;
+	#hub = null;
 	constructor() {
 		super();
+		this.#hub = EventHub.getInstance();
 		// this.#loginButton = document.getElementById("login-button");
 		// this.#usernameInput = document.getElementById("username-input");
 		// this.#passwordInput = document.getElementById("password-input");
@@ -106,6 +109,7 @@ export class LoginComponent extends BaseComponent{
 
 			if (response.ok) {
 				alert("Login successful!");
+				this.#publishNewTask('handleRoute','app');
 				this.#loginContainer.style.display = "none";
 				// Load courses here
 			} else {
@@ -117,23 +121,24 @@ export class LoginComponent extends BaseComponent{
 		}
 	}
 
-	async handlePersistence(){
-		try {
-			let response = await fetch("http://localhost:3000/api/profile/", {
-				method: "GET",
-				headers: {"Content-Type": "application/json"},
-			})
-
-			if (!response.ok){
-				return true;
-			}
-			return false;
-		} catch (error) {
-			console.error("Error fetching profile data:",error);
-			throw new Error("Error fetching profile data:",error);
-		}
-
-
-
+	#publishNewTask(task,input){
+		this.#hub.publish(task,input);
 	}
+
+	// async handlePersistence(){
+	// 	try {
+	// 		let response = await fetch("http://localhost:3000/api/profile/", {
+	// 			method: "GET",
+	// 			headers: {"Content-Type": "application/json"},
+	// 		})
+
+	// 		if (!response.ok){
+	// 			return true;
+	// 		}
+	// 		return false;
+	// 	} catch (error) {
+	// 		console.error("Error fetching profile data:",error);
+	// 		throw new Error("Error fetching profile data:",error);
+	// 	}
+	// }
 }

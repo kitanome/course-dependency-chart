@@ -25,15 +25,6 @@ export class CommentComponent extends BaseComponent {
       // Don't submit empty comments
       return;
     }
-
-    // Submit the comment to the server
-    const response = await fetch(`/api/courses/${this.sanitizedId}/comments`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ text: commentText }),
-    });
     // Submit the comment to the server
     const response = await fetch(
       `http://localhost:3000/api/courses/${this.sanitizedId}/comments`,

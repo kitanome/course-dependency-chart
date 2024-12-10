@@ -56,7 +56,9 @@ export class SidebarComponent extends BaseComponent {
     // Updates the sidebar content with the course details
     this.#container.innerHTML = `
      <div class="course-details">
+
         <h2>${course.name}</h2>
+        <button id="save-course-button">Save</button>
         <p>${course.description}</p>
         <p>Credits: ${course.credits}</p>
         <p>Prerequisites: ${course.prerequisites.join(", ")}</p>

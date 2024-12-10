@@ -8,9 +8,11 @@ export class LoginComponent extends BaseComponent{
 	#loginContainer = null;
 	#loggedIn = false;
 	#hub = null;
+	#formTitle = null;
 	constructor() {
 		super();
 		this.#hub = EventHub.getInstance();
+		this.loginType = `login`;
 		// this.#loginButton = document.getElementById("login-button");
 		// this.#usernameInput = document.getElementById("username-input");
 		// this.#passwordInput = document.getElementById("password-input");
@@ -45,8 +47,8 @@ export class LoginComponent extends BaseComponent{
 		const form = document.createElement("form");
 		form.id = "login-form";
 
-		const formTitle = document.createElement("h2");
-		formTitle.innerText = "Login to Course Dependency Chart";
+		this.#formTitle = document.createElement("h2");
+		this.#formTitle.innerText = "Login to Course Dependency Chart";
 
 		// Username input group
 		const usernameGroup = document.createElement("div");
@@ -76,7 +78,7 @@ export class LoginComponent extends BaseComponent{
 		messageDiv.id = "login-message";
 
 		// Append all elements
-		form.appendChild(formTitle);
+		form.appendChild(this.#formTitle);
 		form.appendChild(usernameGroup);
 		form.appendChild(passwordGroup);
 		form.appendChild(this.#loginButton);
@@ -86,11 +88,25 @@ export class LoginComponent extends BaseComponent{
 
 	#attachEventListener(){
 		this.#loginButton.addEventListener("click", this.handleLogin.bind(this));
+		this.#subscribeToEvent('loadLoginPage',(loginType) => {
+			this.loginType = loginType;
+			switch(loginType){
+				case 'login':
+					this.#formTitle.innerText = "Login to Course Dependency Chart";
+					this.#loginButton.id = "login-button";
+					this.#loginButton.textContent = "Login";
+					break;
+				case 'register':
+					this.#formTitle.innerText = "Register to Course Dependency Chart";
+					this.#loginButton.id = "register-button";
+					this.#loginButton.textContent = "Register";
+			}
+		})
 	}
 
 	async handleLogin(e) {
-		e.preventDefault();
-		console.log("Login button clicked");
+		// e.preventDefault();
+		// console.log("Login button clicked");
 
 		const username = this.#usernameInput.value;
 		const password = this.#passwordInput.value;
@@ -100,8 +116,10 @@ export class LoginComponent extends BaseComponent{
 			return;
 		}
 
+		const link = `http://localhost:3000/api/${this.loginType}`;
+
 		try {
-			const response = await fetch("http://localhost:3000/api/login/", {
+			const response = await fetch(link, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -112,17 +130,20 @@ export class LoginComponent extends BaseComponent{
 			const data = await response.json();
 
 			if (response.ok) {
-				alert("Login successful!");
+				alert(`${data.message}`);
 				this.#publishNewTask('handleRoute','app');
 				this.#loginContainer.style.display = "none";
 				// Load courses here
 			} else {
-				alert(data.error || "Login failed");
+				alert(data.error || `${this.loginType} failed`);
 			}
 		} catch (error) {
-			console.error("Login error:", error);
-			alert("Error during login");
+			console.error("Error: ", error);
+			alert("Error: ",error);
 		}
+	}
+	#subscribeToEvent(task,method){
+		this.#hub.subscribe(task,method);
 	}
 
 	#publishNewTask(task,input){

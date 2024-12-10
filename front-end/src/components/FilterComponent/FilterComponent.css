@@ -16,7 +16,7 @@
 .navbar input[type=text] {
   display:flex;
   width: 15%;
-  height: 30px;
+  height: 45px;
   border-radius: 5px;
   padding: 10px 20px;
   margin: 8px 0;
@@ -51,7 +51,7 @@
   color: black;
 }
 
-.navbar #loginBtn{
+/* .navbar #loginBtn{
   float:right;
   padding: 10px 20px;
   margin: 8px 0;
@@ -64,7 +64,7 @@
 .navbar #loginBtn:hover{
   color:rgb(189, 188, 188);
   color: black;
-}
+} */
 
 .navbar #message{
   font-family: Tahoma;

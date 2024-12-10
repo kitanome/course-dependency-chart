@@ -8,7 +8,9 @@ router.post("/login", login);
 router.get("/logout", logout);
 
 // Create new user
-router.post("/users", createUser);
+router.post("/register", createUser);
+
+//Check if user is currently in a session
 router.get("/profile",isAuthenticated,getProfile)
 
 export default router;

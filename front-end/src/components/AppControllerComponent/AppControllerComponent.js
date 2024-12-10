@@ -69,6 +69,12 @@ export class AppControllerComponent{
 
       case 'login':
         this.#getLogin();
+        this.#publishNewTask('loadLoginPage','login');
+        break;
+
+      case 'register':
+        this.#getLogin();
+        this.#publishNewTask('loadLoginPage','register');
     }
   }
 

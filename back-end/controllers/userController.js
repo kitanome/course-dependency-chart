@@ -57,5 +57,5 @@ export const logout = (req, res) => {
 
 
 export const getProfile = (req,res) => {
-	res.json(factoryResponse(200, `Welcome, ${req.user.username}`));
+	res.status(200).json({user: req.user.username});
 }

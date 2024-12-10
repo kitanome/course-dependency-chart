@@ -40,7 +40,7 @@ export class AppControllerComponent{
     this.#container.id = 'app';
   }
 
-  #getApp(){
+  async #getApp(){
     this.#container.appendChild(this.#filter.render());
     // ERROR: Double graph render
     this.#container.appendChild(this.#graph.render());
@@ -63,7 +63,6 @@ export class AppControllerComponent{
     switch(route){
       case 'app':
         this.#getApp();
-        
         try { this.#data = await this.checkAuth();}
         catch (error) {throw new Error(error);}
         break;
@@ -75,7 +74,7 @@ export class AppControllerComponent{
 
   async checkAuth(){
     	try {
-			let response = await fetch("http://localhost:3000/api/profile/", {
+			let response = await fetch("http://localhost:3000/api/profile", {
 				method: "GET",
 				headers: {"Content-Type": "application/json"},
 			})
@@ -85,7 +84,12 @@ export class AppControllerComponent{
         return;
       }
 			const data = await response.json();
-      this.#publishNewTask('handleLogin',data);
+      this.#publishNewTask('handleLogin',data.user);
+      localStorage.setItem('user',data.user);
+      const test = localStorage.getItem('user');
+      console.log(`JSON fetched from authRequest: ${data}`);
+      console.log(`Username fetched from authRequest: ${data.user}`);
+      console.log(`User object in localStorage: ${test}`);
       return;
 		} catch (error) {
 			console.error("Error fetching profile data:",error);

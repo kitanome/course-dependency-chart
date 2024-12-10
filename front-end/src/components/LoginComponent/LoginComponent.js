@@ -94,7 +94,7 @@ export class LoginComponent extends BaseComponent{
 		}
 
 		try {
-			const response = await fetch("http://localhost:3000/api/login/auth", {
+			const response = await fetch("http://localhost:3000/api/login/", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -119,18 +119,15 @@ export class LoginComponent extends BaseComponent{
 
 	async handlePersistence(){
 		try {
-			let response = await fetch("http:localhost:3000/api/profile", {
+			let response = await fetch("http://localhost:3000/api/profile", {
 				method: "GET",
 				headers: {"Content-Type": "application/json"},
 			})
 
 			if (!response.ok){
-				this.#loggedIn = false;
-				return;
+				return true;
 			}
-
-			this.#loggedIn = true;
-			return;
+			return false;
 		} catch (error) {
 			console.error("Error fetching profile data:",error);
 			throw new Error("Error fetching profile data:",error);

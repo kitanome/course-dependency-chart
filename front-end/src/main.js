@@ -8,22 +8,25 @@ import { LoginComponent } from "./components/LoginComponent/LoginComponent.js";
 
 // Wait for DOM to be fully loaded
 const loginComponent = new LoginComponent();
-loginComponent.handlePersistence();
-document.body.appendChild(loginComponent.render());
+const loggedIn = await loginComponent.handlePersistence();
+if (loggedIn){
+    document.body.appendChild(loginComponent.render());
+}
 
-const app = new AppControllerComponent();
-document.body.appendChild(app.render());
 
-// const app = document.getElementById("app");
+// const app = new AppControllerComponent();
+// document.body.appendChild(app.render());
 
-// const filter = new FilterComponent();
-// const graph = new GraphComponent();
-// const sidebar = new SidebarComponent();
+const app = document.getElementById("app");
 
-// app.appendChild(filter.render());
-// // ERROR: Double graph render
-// app.appendChild(graph.render());
-// graph.generateGraph();
+const filter = new FilterComponent();
+const graph = new GraphComponent();
+const sidebar = new SidebarComponent();
 
-// app.appendChild(sidebar.render());
+app.appendChild(filter.render());
+// ERROR: Double graph render
+app.appendChild(graph.render());
+graph.generateGraph();
+
+app.appendChild(sidebar.render());
 

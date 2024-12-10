@@ -24,6 +24,7 @@ export class GraphComponent extends BaseComponent {
   #createContainer() {
     this.#container = document.createElement("div");
     this.#container.classList.add("graph-component");
+    this.#container.id = "graph-component";
     this.#container.innerHTML = this.#getTemplate();
   }
 
@@ -129,13 +130,20 @@ export class GraphComponent extends BaseComponent {
 
   async generateGraph() {
     let classList = await this.#getClassData();
+    classList.sort((a, b) => a.course_id.localeCompare(b.course_id)); // Sort by course ID
     const IDList = classList.map((course) => course.course_id);
 
     //convert names to set to remove duplicates
     const uniqueIDList = new Set(IDList);
 
     this.#graph = new dagreD3.graphlib.Graph()
-      .setGraph({})
+      .setGraph({
+        edgesep: 70,
+        ranksep: 150,
+        nodesep: 10,
+        rankdir: "TB",
+        ranker: "longest-path",
+      })
       .setDefaultEdgeLabel(function () {
         return {};
       });
@@ -175,6 +183,7 @@ export class GraphComponent extends BaseComponent {
 
     // Layout the graph
     const render = new dagreD3.render();
+
     const svg = d3.select("#graph");
     const inner = svg.append("g");
 
@@ -183,11 +192,31 @@ export class GraphComponent extends BaseComponent {
     // Render the graph into the SVG
     render(inner, this.#graph);
 
+    //Style the edges
+    inner
+      .selectAll(".edgePath path")
+      .style("stroke", "rgba(0, 0, 0, 0.1)") // Adjust the RGBA value to control transparency
+      .style("stroke-width", "2px");
+
     let xCenterOffset = 200;
-    inner.attr("transform", "translate(" + xCenterOffset + ", 0)");
+    let yCenterOffset = 100;
+    inner.attr(
+      "transform",
+      "translate(" + xCenterOffset + ", " + yCenterOffset + ")"
+    );
+
     svg
-      .attr("height", this.#graph.graph().height + 40)
-      .attr("width", this.#graph.graph().width + 1000);
+      .attr("height", this.#graph.graph().height + 2 * yCenterOffset)
+      .attr("width", this.#graph.graph().width + 2 * xCenterOffset);
+
+    // Scroll to the center of the graph
+    const graphContainer = document.getElementById("graph-component");
+    graphContainer.scrollTo({
+      left: (graphContainer.scrollWidth - graphContainer.clientWidth) / 2,
+      behavior: "smooth",
+    });
+
+
     this.#attachEventListeners();
   }
 }

@@ -1,12 +1,12 @@
 import express from "express";
-import {sequelize} from "./database.js";
+import sequelize from "./database.js";
 import session from "express-session";
 import SequelizeStore from "connect-session-sequelize";
 import cors from "cors";
 import courseRoutes from "./routes/courseRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-import User from "./model/UserModel.js";
-import Course from "./model/CourseModel.js";
+import User from "./models/UserModel.js";
+import Course from "./models/CourseModel.js";
 import { Sequelize } from "sequelize";
 import passport from "./auth/passport.js";
 import bcrypt from "bcryptjs";
@@ -15,7 +15,7 @@ const app = express();
 const port = 3000;
 
 //Configure static files
-app.use(express.static("front-end/src"));
+app.use(express.static("../front-end/"));
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -43,9 +43,9 @@ app.use("/api", courseRoutes);
 app.use("/api", userRoutes);
 
 // Test route
-app.get("/", (req, res) => {
-	res.send("Hello World!");
-});
+// app.get("/", (req, res) => {
+// 	res.send("Hello World!");
+// });
 
 //Use routes from routes.js
 // app.use("/",routes);

@@ -8,6 +8,7 @@ import { LoginComponent } from "./components/LoginComponent/LoginComponent.js";
 
 // Wait for DOM to be fully loaded
 const loginComponent = new LoginComponent();
+loginComponent.handlePersistence();
 document.body.appendChild(loginComponent.render());
 
 const app = new AppControllerComponent();

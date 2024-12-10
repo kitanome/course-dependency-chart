@@ -7,8 +7,14 @@ import { GraphComponent } from "./components/GraphComponent/GraphComponent.js";
 import { LoginComponent } from "./components/LoginComponent/LoginComponent.js";
 
 // Wait for DOM to be fully loaded
+
+
 const loginComponent = new LoginComponent();
-document.body.appendChild(loginComponent.render());
+const loggedIn = await loginComponent.handlePersistence();
+if (loggedIn){
+    document.body.appendChild(loginComponent.render());
+}
+
 
 const app = document.getElementById("app");
 

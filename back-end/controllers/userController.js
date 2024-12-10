@@ -28,7 +28,7 @@ export const createUser = async (req, res) => {
 export const login = async (req, res, next) => {
 	try {
 		const { username, password } = req.body;
-		console.log("Login attempt:", username);
+		console.log("Login attempt:", username, password);
 
 		const user = await User.findOne({ where: { username } });
 		if (!user || !(await bcrypt.compare(password, user.password))) {
@@ -38,7 +38,7 @@ export const login = async (req, res, next) => {
 		req.login(user, (err) =>
 			err ? next(err) : res.json(factoryResponse(200, "Login successful"))
 		);
-		
+
 	} catch (error) {
 		console.error("Login error:", error);
 		return res.status(500).json({ error: "Failed to login" });
@@ -54,7 +54,7 @@ export const logout = (req, res) => {
 	  res.json(factoryResponse(200, "Logout successful"));
 	});
   };
-  
+
 
 export const getProfile = (req,res) => {
 	res.json(factoryResponse(200, `Welcome, ${req.user.username}`));

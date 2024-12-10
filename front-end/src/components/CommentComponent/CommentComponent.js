@@ -35,7 +35,7 @@ export class CommentComponent extends BaseComponent {
       body: JSON.stringify({ text: commentText }),
     });
     // Submit the comment to the server
-    const response = await fetch(
+    const res = await fetch(
       `http://localhost:3000/api/courses/${this.sanitizedId}/comments`,
       {
         method: "POST",
@@ -46,8 +46,8 @@ export class CommentComponent extends BaseComponent {
       }
     );
 
-    if (response.ok) {
-      const newComment = await response.json();
+    if (res.ok) {
+      const newComment = await res.json();
       this.comments.push(newComment);
       this.renderComments();
     }

@@ -93,7 +93,9 @@ export class GraphComponent extends BaseComponent {
     // Extract the node id from the element
     console.log("extracting");
     const input = clickedElement.select("text").text();
-    const match = input.match(/^[A-Za-z]*\d+/); // Matches from start to the last digit
+    console.log(input);
+    const match = input.match(/^\S+\s\d+/); // Matches from start to the last digit
+    console.log(match);
     const nodeId = match ? match[0] : null;
     console.log(nodeId);
     // Get the node data using the extracted id

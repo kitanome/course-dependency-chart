@@ -1,17 +1,13 @@
 import express from "express";
-import { login, createUser } from "../controllers/userController.js";
+import { login, createUser, getProfile } from "../controllers/userController.js";
 import passport from "../auth/passport.js";
+import {isAuthenticated} from "../auth/middleware.js";
 
 const router = express.Router();
 
 // Login route
-router.post("/login", login);
-// router.post("/login/auth",
-//     passport.authenticate('local',{
-//         successRedirect:'/',
-//         failureRedirect:'/login',
-//     })
-// )
+router.post("/login", renderLogin);
+router.post("/login/auth", login);
 
 // Create new user
 router.post("/users", createUser);

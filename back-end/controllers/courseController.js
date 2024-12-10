@@ -24,12 +24,14 @@ export const fetchComments = async (req, res) => {
   try {
     const recoveredCourseId = req.params.id.replace(/_/g, " ");
     console.log("Recovered course ID:", recoveredCourseId);
-    const course = await Course.findByPk(recoveredCourseId);
+    const course = await Course.findOne({
+      where: { course_id: recoveredCourseId },
+    });
     if (!course) {
       res.status(404).json({ error: "Course not found" });
       return;
     }
-    const comments = await course.getComments();
+		 const comments = JSON.parse(course.comments || "[]");
     res.status(200).json(comments);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch comments" });
@@ -42,8 +44,8 @@ export const fetchComments = async (req, res) => {
  */
 export const createComment = async (req, res) => {
   try {
-    const recoveredCourseId = req.params.sanitized_id.replace(/_/g, " ");
-    const course = await Course.findByPk(recoveredCourseId);
+    const recoveredCourseId = req.params.id.replace(/_/g, " ");
+    const course = await Course.findOne({ where: { course_id: recoveredCourseId } });
     if (!course) {
       res.status(404).json({ error: "Course not found" });
       return;
@@ -66,3 +68,19 @@ export const createComment = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+export const clearComments = async (req, res) => {
+	try {
+		const recoveredCourseId = req.params.id.replace(/_/g, " ");
+		const course = await Course.findOne({ where: { course_id: recoveredCourseId } });
+		if (!course) {
+			res.status(404).json({ error: "Course not found" });
+			return;
+		}
+		course.comments = JSON.stringify([]);
+		await course.save();
+		res.status(204).end();
+	} catch (error) {
+		res.status(500).json({ error: "Failed to clear comments" });
+	}
+}

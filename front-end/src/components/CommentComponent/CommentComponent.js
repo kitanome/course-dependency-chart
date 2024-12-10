@@ -10,17 +10,18 @@ export class CommentComponent extends BaseComponent {
     this.sanitizedId = this.courseId.replace(/\s/g, "_");
   }
 
-
   async fetchComments() {
-    const response = await fetch(`/api/courses/${this.sanitizedId}/comments`);
+    const response = await fetch(
+      `http://localhost:3000/api/courses/${this.sanitizedId}/comments`
+    );
     this.comments = await response.json();
   }
-
 
   async submitComment(event) {
     event.preventDefault();
     const commentText = event.target.elements.comment.value;
     if (!commentText) {
+
       // Don't submit empty comments
       return;
     }
@@ -33,6 +34,17 @@ export class CommentComponent extends BaseComponent {
       },
       body: JSON.stringify({ text: commentText }),
     });
+    // Submit the comment to the server
+    const response = await fetch(
+      `http://localhost:3000/api/courses/${this.sanitizedId}/comments`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content: commentText }),
+      }
+    );
 
     if (response.ok) {
       const newComment = await response.json();
@@ -46,14 +58,37 @@ export class CommentComponent extends BaseComponent {
     commentsList.innerHTML = "";
     this.comments.forEach((comment) => {
       const commentItem = document.createElement("li");
-      commentItem.textContent = comment.text;
+      commentItem.textContent = comment.content;
       commentsList.appendChild(commentItem);
+    });
+  }
+
+  clearComments() {
+    fetch(`http://localhost:3000/api/courses/${this.sanitizedId}/comments`, {
+      method: "DELETE",
+    }).then(() => {
+      this.comments = [];
+      this.renderComments();
     });
   }
 
   render() {
     this.element = document.createElement("div");
     this.element.className = "comments-component";
+
+    const bar = document.createElement("hr");
+    this.element.appendChild(bar);
+
+    const clearButton = document.createElement("button");
+    clearButton.textContent = "Clear comments";
+    clearButton.addEventListener("click", () => {
+      this.clearComments();
+    });
+    this.element.appendChild(clearButton);
+
+    const title = document.createElement("h2");
+    title.textContent = "Comments";
+    this.element.appendChild(title);
 
     const commentsList = document.createElement("ul");
     commentsList.className = "comments-list";

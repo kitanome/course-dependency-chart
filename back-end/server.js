@@ -54,8 +54,6 @@ async function main() {
     // });
     // console.log("Test user created:", user.toJSON());
 
-	const password = await bcrypt.hash("123",10);
-
 		// Create test data
 
     app.listen(port, () => {

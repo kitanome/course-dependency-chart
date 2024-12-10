@@ -10,6 +10,10 @@ const User = sequelize.define('User', {
   password: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  savedCourses: {
+    type: DataTypes.JSON, // null or JSON array
+    allowNull: true
   }
 });
 

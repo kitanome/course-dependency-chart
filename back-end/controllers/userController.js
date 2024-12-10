@@ -9,6 +9,8 @@ const existUser = async(username) => {
 	return user;
 }
 
+let hub = EventHub.getInstance();
+
 export const createUser = async (req, res) => {
 	try {
 		const {username, password} =  req.body;
@@ -55,4 +57,8 @@ export const logout = (req, res) => {
 
 export const getProfile = (req,res) => {
 	res.status(200).json({message: `Welcome, ${req.user.username}`});
+}
+
+export const renderLogin = (req, res) => {
+	hub.publish('handleRoute','login');
 }

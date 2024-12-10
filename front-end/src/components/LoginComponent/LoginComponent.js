@@ -45,6 +45,9 @@ export class LoginComponent extends BaseComponent{
 		const form = document.createElement("form");
 		form.id = "login-form";
 
+		const formTitle = document.createElement("h2");
+		formTitle.innerText = "Login to Course Dependency Chart";
+
 		// Username input group
 		const usernameGroup = document.createElement("div");
 		usernameGroup.className = "form-group";
@@ -73,6 +76,7 @@ export class LoginComponent extends BaseComponent{
 		messageDiv.id = "login-message";
 
 		// Append all elements
+		form.appendChild(formTitle);
 		form.appendChild(usernameGroup);
 		form.appendChild(passwordGroup);
 		form.appendChild(this.#loginButton);

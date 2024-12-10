@@ -213,7 +213,6 @@ export class GraphComponent extends BaseComponent {
     const graphContainer = document.getElementById("graph-component");
     graphContainer.scrollTo({
       left: (graphContainer.scrollWidth - graphContainer.clientWidth) / 2,
-      behavior: "smooth",
     });
 
 

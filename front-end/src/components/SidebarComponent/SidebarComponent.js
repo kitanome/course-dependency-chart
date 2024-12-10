@@ -31,7 +31,9 @@ export class SidebarComponent extends BaseComponent {
     // Sets inital content of the sidebar
     this.#container.innerHTML = `
       <div class="no-course-selected">
-        Click on a course to view its details
+        <p>Welcome to the course catalog!</p>
+
+        Click on a course to view its details.
       </div>
     `;
   }

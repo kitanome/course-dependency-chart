@@ -67,4 +67,4 @@ Built for students who would like to see course planning in a more visual way.
 
 ## Test Video
 
-[![326 voiceover](movie.mp4)](movie.mp4)
+[![Test Video](movie.mp4)](movie.mp4)

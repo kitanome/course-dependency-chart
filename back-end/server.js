@@ -47,11 +47,16 @@ async function main() {
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);
       console.log("Available routes:");
-      console.log("- GET  /");
-      console.log("- GET  /api/courses");
-      console.log("- POST /api/login");
-      console.log("- POST /api/users");
-      console.log("- POST /api/courses");
+      console.log("- GET    /");
+      console.log("- GET    /api/courses");
+      console.log(" -GET    /api/courses/:id/comments");
+      console.log("- GET    /api/logout");
+      console.log("- GET    /api/profile");
+      console.log("- POST   /api/login");
+      console.log("- POST   /api/register");
+      console.log("- POST   /api/courses");
+      console.log(" -POST   /api/courses/:id/comments");
+      console.log(" -DELETE /api/courses/:id/comments")
     });
   } catch (error) {
 		console.error("Startup error:", error);

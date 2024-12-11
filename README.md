@@ -3,6 +3,35 @@
 
 ## Demo
 
+## Instructions
+- Start the server on a separate terminal:
+  ```
+  cd back-end
+  npm install
+  npm start
+  ```
+- Install front-end dependencies in a 2nd terminal:
+  ```
+  cd front-end
+  npm install
+  ```
+- Launch the app:
+  - Using VSCode Live Server: Navigate to `./front-end/index.html` and run using [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+  - Using `npm`:
+  ```
+  cd front-end
+  npm start
+  ```
+
+- Login Test Account:
+  ```
+  username : test
+  password : 123
+  ```
+- Resetting database (containing only course data and the test account)
+  ```
+  node ./back-end/loadData.js
+  ```
 
 ## Features
   - Canvas that shows courses in the order of prerequisites, as a top-down directed graph

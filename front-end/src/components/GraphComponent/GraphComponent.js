@@ -34,7 +34,7 @@ export class GraphComponent extends BaseComponent {
         `;
   }
 
-  async #getClassData() {
+  async getClassData() {
     let link = "http://localhost:3000/api/courses";
     try {
       console.log("Fetching course data...");
@@ -71,65 +71,8 @@ export class GraphComponent extends BaseComponent {
       });
   }
 
-  #handleFilter(term) {
-    let svg = document.getElementById("graph");
-    const textNodes = svg.querySelectorAll("text");
-    textNodes.forEach((text) => {
-      console.log(text.textContent);
-      if (text.textContent.toLowerCase().includes(term.toLowerCase()) && term) {
-        // Highlight matching text
-        text.setAttribute("fill", "yellow"); // Change text color
-        text.setAttribute("stroke", "yellow"); // Add an outline
-        console.log(text);
-      } else {
-        // Reset styling for non-matching text
-        text.setAttribute("fill", "black"); // Default text color
-        text.setAttribute("stroke", "none"); // Remove outline
-      }
-    });
-  }
-
-  #handleSelect(event) {
-    const clickedElement = d3.select(event.currentTarget);
-    // Extract the node id from the element
-    console.log("extracting");
-    const input = clickedElement.select("text").text();
-    console.log(input);
-    const match = input.match(/^\S+\s\d+/); // Matches from start to the last digit
-    console.log(match);
-    const nodeId = match ? match[0] : null;
-    console.log(nodeId);
-    // Get the node data using the extracted id
-    const nodeData = this.#graph.node(nodeId);
-    // Call showCourseDetails with the stored course data
-    if (nodeData && nodeData.courseData) {
-      this.#publishNewTask("courseSelect", nodeData.courseData);
-    }
-  }
-
-  #publishNewTask(task, course) {
-    const hub = EventHub.getInstance();
-    hub.publish(task, course);
-  }
-
-  #wrapText(text, maxLength) {
-    let result = "";
-    let lineLength = 0;
-
-    text.split(" ").forEach((word) => {
-      if (lineLength + word.length + 1 > maxLength) {
-        result += "\n";
-        lineLength = 0;
-      }
-      result += (lineLength === 0 ? "" : " ") + word;
-      lineLength += word.length + 1;
-    });
-
-    return result;
-  }
-
-  async generateGraph() {
-    let classList = await this.#getClassData();
+  async generateGraph(classData=null) {
+    let classList = classData ? classData : await this.getClassData();
     classList.sort((a, b) => a.course_id.localeCompare(b.course_id)); // Sort by course ID
     const IDList = classList.map((course) => course.course_id);
 
@@ -217,5 +160,62 @@ export class GraphComponent extends BaseComponent {
 
 
     this.#attachEventListeners();
+  }
+
+  #handleFilter(term) {
+    let svg = document.getElementById("graph");
+    const textNodes = svg.querySelectorAll("text");
+    textNodes.forEach((text) => {
+      console.log(text.textContent);
+      if (text.textContent.toLowerCase().includes(term.toLowerCase()) && term) {
+        // Highlight matching text
+        text.setAttribute("fill", "yellow"); // Change text color
+        text.setAttribute("stroke", "yellow"); // Add an outline
+        console.log(text);
+      } else {
+        // Reset styling for non-matching text
+        text.setAttribute("fill", "black"); // Default text color
+        text.setAttribute("stroke", "none"); // Remove outline
+      }
+    });
+  }
+
+  #handleSelect(event) {
+    const clickedElement = d3.select(event.currentTarget);
+    // Extract the node id from the element
+    console.log("extracting");
+    const input = clickedElement.select("text").text();
+    console.log(input);
+    const match = input.match(/^\S+\s\d+/); // Matches from start to the last digit
+    console.log(match);
+    const nodeId = match ? match[0] : null;
+    console.log(nodeId);
+    // Get the node data using the extracted id
+    const nodeData = this.#graph.node(nodeId);
+    // Call showCourseDetails with the stored course data
+    if (nodeData && nodeData.courseData) {
+      this.#publishNewTask("courseSelect", nodeData.courseData);
+    }
+  }
+
+  #publishNewTask(task, course) {
+    const hub = EventHub.getInstance();
+    hub.publish(task, course);
+  }
+
+  #wrapText(text, maxLength) {
+    let result = "";
+    let lineLength = 0;
+
+    text.split(" ").forEach((word) => {
+      if (lineLength + word.length + 1 > maxLength) {
+        result += "\n";
+        lineLength = 0;
+      }
+      result += (lineLength === 0 ? "" : " ") + word;
+      lineLength += word.length + 1;
+    });
+
+    return result;
   }
 }

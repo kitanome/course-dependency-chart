@@ -7,13 +7,12 @@ import { LoginComponent } from "../LoginComponent/LoginComponent.js";
 
 export class AppControllerComponent{
   #container = null; // Private container for the component
-  #filter = null; // Instance of the filter component
-  #hub = null; // EventHub instance for managing events
-  #graph = null; // Instance of the graph component
-  #sidebar = null; // Instance of the sidebar component
-  #login = null; // Instance of the login component
-  #data = null;
-
+  #filter
+  #hub
+  #graph
+  #sidebar
+  #login
+  #data
 
   constructor() {
     this.#hub = EventHub.getInstance();

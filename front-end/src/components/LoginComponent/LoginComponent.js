@@ -105,7 +105,7 @@ export class LoginComponent extends BaseComponent{
 	}
 
 	async handleLogin(e) {
-		// e.preventDefault();
+		e.preventDefault();
 		// console.log("Login button clicked");
 
 		const username = this.#usernameInput.value;

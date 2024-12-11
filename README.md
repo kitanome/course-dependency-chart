@@ -67,4 +67,4 @@ Built for students who would like to see course planning in a more visual way.
 
 ## Test Video
 
-[![Test Video](thumbnail.png)](https://streamable.com/jepmfa)
+[![Test Video](team/assets/thumbnail.png)](https://streamable.com/jepmfa)

@@ -14,17 +14,12 @@ const existUser = async(username) => {
 export const createUser = async (req, res) => {
 	try {
 		const {username, password} =  req.body;
-		if (await existUser(req.body.username)){
-			return res.status(400).json(factoryResponse(400, "Username already taken"));
+		if (await existUser(username)){
+			return res.status(400).json({error: 'Username already taken'})
 		}
 		const hash = await bcrypt.hash(password,10);
 		await User.create({ username, password: hash});
-		const user = await User.findOne({ where: { username } });
-
-		req.login(user, (err) =>
-			err ? next(err) : res.json(factoryResponse(200, "Registration successful"))
-		);
-		
+		res.status(200).json({message: 'Account successfully created'});
 	} catch (error) {
 		res.status(400).json({ error: error.message });
 	}
@@ -37,11 +32,11 @@ export const login = async (req, res, next) => {
 
 		const user = await User.findOne({ where: { username } });
 		if (!user || !(await bcrypt.compare(password, user.password))) {
-			return res.status(401).json(factoryResponse(401, "Invalid credentials"));
+			return res.status(401).json({ error: "Invalid credentials" });
 		}
 
 		req.login(user, (err) =>
-			err ? next(err) : res.json(factoryResponse(200, "Login successful"))
+			err ? next(err) : res.status(200).json({message: "Login Successful"})
 		);
 
 	} catch (error) {
@@ -53,10 +48,10 @@ export const login = async (req, res, next) => {
 export const logout = (req, res) => {
 	req.logout(function (err) {
 	  if (err) {
-		res.json(factoryResponse(500, "Logout failed"));
+		res.status(500).json({error: "Logout failed"});
 		return;
 	  }
-	  res.json(factoryResponse(200, "Logout successful"));
+	  res.status(200).json({message: "Logout successful"});
 	});
   };
 
